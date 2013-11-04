@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+		<meta name="robots" content="noindex, nofollow" />
+
+		<title>FTS Mobile Test Page</title>
+
+		<link type="text/css" rel="stylesheet" href="docs.css" />
+		<link type="text/css" rel="stylesheet" href="mmenu.css" />
+		<link type="text/css" rel="stylesheet" media="all and (min-width: 900px)" href="mmenu-widescreen.css" />
+		<link type="text/css" rel="stylesheet" href="carousel.css" />
+		
+		<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="jquery.hammer.min.js"></script>
+		<script type="text/javascript" src="jquery.mmenu.min.js"></script>
+		<script type="text/javascript" src="modernizr.js"></script>
+		<script type="text/javascript" src="data/appeal.js"></script>
+		<script type="text/javascript" src="data/emergency.js"></script>
+		<script type="text/javascript" src="data/organization.js"></script>
+		<script type="text/javascript" src="common.js"></script>
+		<script>
+			thisyearappeals = appeal.filter(function(d){return d.year==2013})
+			thisyearappealslen = thisyearappeals.length
+			thisyearemergencies = emergency.filter(function(d){return d.year==2013})
+			thisyearemergencieslen = thisyearemergencies.length
+			globaloverview = {"appealcount":thisyearappealslen,"emergencycount":thisyearemergencieslen,"original_requirements":0,"current_requirements":0,"appeal_funding":0,"appeal_pledges":0,"emergency_funding":0,"emergency_pledges":0,"percent_funded":1}
+			for(i=0;i<thisyearappealslen;i++){
+				globaloverview.current_requirements+=thisyearappeals[i].current_requirements
+				globaloverview.original_requirements+=thisyearappeals[i].original_requirements
+				globaloverview.appeal_pledges+=thisyearappeals[i].pledges
+				globaloverview.appeal_funding+=thisyearappeals[i].funding
+			}
+			for(i=0;i<thisyearemergencieslen;i++){
+				globaloverview.emergency_pledges+=thisyearemergencies[i].pledges
+				globaloverview.emergency_funding+=thisyearemergencies[i].funding
+			}
+			if(globaloverview.current_requirements>0){
+				globaloverview.percent_funded=globaloverview.appeal_funding/globaloverview.current_requirements
+			}
+		</script>
+	</head>
+	<body>
+		<div id="page">
+			<div id="header">
+				<a href="#menu"></a>
+				<img id="logo" src="logo.png"/>
+			</div>
+			<div id="content">
+				<div id="overview">
+					<h4 id="overview">Overview of 2013 Appeals</h4>
+					<p id="requirements"><strong>Requirements:</strong> $</p>
+					<p id="funding"><strong>Funding:</strong> $</p>
+					<p id="covered"><strong>% covered: </strong>%</p>
+					<p id="unmet"><strong>Unmet requirements:</strong> $</p>
+				</div>
+				<script>
+				$('p#requirements').append(truncnumber(globaloverview.current_requirements))
+				$('p#funding').append(truncnumber(globaloverview.appeal_funding))
+				$('p#covered strong').after(Math.round(globaloverview.percent_funded*100))
+				$('p#unmet').append(truncnumber(globaloverview.current_requirements-globaloverview.appeal_funding))
+				</script>
+				<h1 id="title" style="text-align: center">Current Year Strategic Response Plans</h1>
+				<table id="appeals" style="margin-left: auto;margin-right: auto;">
+				</table>
+				<script>
+				thisyearappeals = appeal.filter(function(d){return d.year==2013 && d.type=="CAP"}).sort(function(a, b){var keyA = a.title.toUpperCase(),keyB = b.title.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;});
+				appeallen = thisyearappeals.length
+				halflen = Math.round(appeallen/2)
+				for(i=0;i<halflen;i++){
+					$('table#appeals').append("<tr id='appealtr"+i+"' style='border:1px solid black;'></tr>")
+				}
+				for(i=0;i<appeallen;i++){
+					if(thisyearappeals[i].current_requirements>0){
+					$('tr#appealtr'+Math.floor(i/2)).append("<td class='clickable' id="+thisyearappeals[i].id+"><strong>"+thisyearappeals[i].title+"</strong></br>Requested: $"+truncnumber(thisyearappeals[i].current_requirements)+"</br>Funding: $"+truncnumber(thisyearappeals[i].funding)+"</br>Covered: "+Math.round((thisyearappeals[i].funding/thisyearappeals[i].current_requirements)*100)+"%</td>")
+				}
+					else{$('tr#appealtr'+Math.floor(i/2)).append("<td class='clickable' id="+thisyearappeals[i].id+"><strong>"+thisyearappeals[i].title+"</strong></br>Requested: $"+truncnumber(thisyearappeals[i].current_requirements)+"</br>Funding: $"+truncnumber(thisyearappeals[i].funding)+"</br>Covered: "+100+"%</td>")}
+				}
+				$('td').click(function(){window.location.replace("appeal.html?id="+this.id)})
+				</script>
+			</div>
+			<nav id="menu">
+				<ul>
+					<li><a href="index.html" id="home">Home</a></li>
+					<li class="top">
+						<a href="aoverview.html?year=2013" id="current_appeal_overview">Appeals</a>
+						<ul>
+							<li class="Label">Year</li>
+							<li>
+								<a href="aoverview.html?year=2013" id="2013_appeal_overview">2013</a>
+									<ul id="appeal2013"></ul>
+									<script>
+										populatelist("appeal","2013")
+									</script>
+									
+							</li>
+							<li>
+								<a href="aoverview.html?year=2012" id="2012_appeal_overview">2012</a>
+									<ul id="appeal2012"></ul>
+									<script>
+										populatelist("appeal","2012")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2011" id="2011_appeal_overview">2011</a>
+									<ul id="appeal2011"></ul>
+									<script>
+										populatelist("appeal","2011")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2010" id="2010_appeal_overview">2010</a>
+									<ul id="appeal2010"></ul>
+									<script>
+										populatelist("appeal","2010")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2009" id="2009_appeal_overview">2009</a>
+									<ul id="appeal2009"></ul>
+									<script>
+										populatelist("appeal","2009")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2008" id="2008_appeal_overview">2008</a>
+									<ul id="appeal2008"></ul>
+									<script>
+										populatelist("appeal","2008")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2007" id="2007_appeal_overview">2007</a>
+									<ul id="appeal2007"></ul>
+									<script>
+										populatelist("appeal","2007")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2006" id="2006_appeal_overview">2006</a>
+									<ul id="appeal2006"></ul>
+									<script>
+										populatelist("appeal","2006")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2005" id="2005_appeal_overview">2005</a>
+									<ul id="appeal2005"></ul>
+									<script>
+										populatelist("appeal","2005")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2004" id="2004_appeal_overview">2004</a>
+									<ul id="appeal2004"></ul>
+									<script>
+										populatelist("appeal","2004")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2003" id="2003_appeal_overview">2003</a>
+									<ul id="appeal2003"></ul>
+									<script>
+										populatelist("appeal","2003")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2002" id="2002_appeal_overview">2002</a>
+									<ul id="appeal2002"></ul>
+									<script>
+										populatelist("appeal","2002")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2001" id="2001_appeal_overview">2001</a>
+									<ul id="appeal2001"></ul>
+									<script>
+										populatelist("appeal","2001")
+									</script>
+							</li>
+							<li>
+								<a href="aoverview.html?year=2000" id="2000_appeal_overview">2000</a>
+									<ul id="appeal2000"></ul>
+									<script>
+										populatelist("appeal","2000")
+									</script>
+							</li>
+							<li><a href="#" id="Archive_appeal">Archive</a></li>
+						</ul>
+					</li>
+					<li class="top">
+						<a href="eoverview.html?year=2013" id="current_emergency_overview">Emergencies</a>
+						<ul>
+							<li class="Label">Year</li>
+							<li><a href="eoverview.html?year=2013" id="2013_emergency_overview">2013</a>
+								<ul id="emergency2013"></ul>
+								<script>
+									populatelist("emergency","2013")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2012" id="2012_emergency_overview">2012</a>
+								<ul id="emergency2012"></ul>
+								<script>
+									populatelist("emergency","2012")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2011" id="2011_emergency_overview">2011</a>
+								<ul id="emergency2011"></ul>
+								<script>
+									populatelist("emergency","2011")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2010" id="2010_emergency_overview">2010</a>
+								<ul id="emergency2010"></ul>
+								<script>
+									populatelist("emergency","2010")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2009" id="2009_emergency_overview">2009</a>
+								<ul id="emergency2009"></ul>
+								<script>
+									populatelist("emergency","2009")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2008" id="2008_emergency_overview">2008</a>
+								<ul id="emergency2008"></ul>
+								<script>
+									populatelist("emergency","2008")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2007" id="2007_emergency_overview">2007</a>
+								<ul id="emergency2007"></ul>
+								<script>
+									populatelist("emergency","2007")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2006" id="2006_emergency_overview">2006</a>
+								<ul id="emergency2006"></ul>
+								<script>
+									populatelist("emergency","2006")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2005" id="2005_emergency_overview">2005</a>
+								<ul id="emergency2005"></ul>
+								<script>
+									populatelist("emergency","2005")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2004" id="2004_emergency_overview">2004</a>
+								<ul id="emergency2004"></ul>
+								<script>
+									populatelist("emergency","2004")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2003" id="2003_emergency_overview">2003</a>
+								<ul id="emergency2003"></ul>
+								<script>
+									populatelist("emergency","2003")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2002" id="2002_emergency_overview">2002</a>
+								<ul id="emergency2002"></ul>
+								<script>
+									populatelist("emergency","2002")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2001" id="2001_emergency_overview">2001</a>
+								<ul id="emergency2001"></ul>
+								<script>
+									populatelist("emergency","2001")
+								</script>
+							</li>
+							<li><a href="eoverview.html?year=2000" id="2000_emergency_overview">2000</a>
+								<ul id="emergency2000"></ul>
+								<script>
+									populatelist("emergency","2000")
+								</script>
+							</li>
+							<li><a href="#" id="Archive_emergency">Archive</a></li>
+						</ul>
+					</li>
+					<li class="top"><a href="go.html?year=2013" id="global_overview">Global Overview</a>
+						<ul>
+							<li><a href="go.html?year=2013" id="global_overview_2013">2013</a></li>
+							<li><a href="go.html?year=2012" id="global_overview_2012">2012</a></li>
+							<li><a href="go.html?year=2011" id="global_overview_2011">2011</a></li>
+							<li><a href="go.html?year=2010" id="global_overview_2010">2010</a></li>
+							<li><a href="go.html?year=2009" id="global_overview_2009">2009</a></li>
+							<li><a href="go.html?year=2008" id="global_overview_2008">2008</a></li>
+							<li><a href="go.html?year=2007" id="global_overview_2007">2007</a></li>
+							<li><a href="go.html?year=2006" id="global_overview_2006">2006</a></li>
+							<li><a href="go.html?year=2005" id="global_overview_2005">2005</a></li>
+							<li><a href="go.html?year=2004" id="global_overview_2004">2004</a></li>
+							<li><a href="go.html?year=2003" id="global_overview_2003">2003</a></li>
+							<li><a href="go.html?year=2002" id="global_overview_2002">2002</a></li>
+							<li><a href="go.html?year=2001" id="global_overview_2001">2001</a></li>
+							<li><a href="go.html?year=2000" id="global_overview_2000">2000</a></li>
+						</ul>
+					</li>
+					<li class="types"><span>Donors</span>
+						<ul id="donors">
+						</ul>
+						<script>poporg("Government","donors")</script>	
+					</li>
+					<li><a href="#" id="about">About</a></li>
+					<li><a href="#" id="contact">Contact Us</a></li>
+					<li><a href="http://fts.unocha.org?media=desktop" id="desktop">Desktop site</a></li>
+				</ul>
+			</nav>
+		</div>
+		<script src="carousel.js"></script>
+		<script src="ga.js"></script>
+	</body>
+</html>
