@@ -48,43 +48,61 @@
 				<img id="logo" src="logo.png"/>
 			</div>
 			<div id="content">
-				<div id="overview">
-					<h4 id="overview">Overview of 2013 Appeals</h4>
-					<p id="requirements"><strong>Requirements:</strong> $</p>
-					<p id="funding"><strong>Funding:</strong> $</p>
-					<p id="covered"><strong>% covered: </strong>%</p>
-					<p id="unmet"><strong>Unmet requirements:</strong> $</p>
-				</div>
+					<div class="overviewtopleft">
+						<h3 class="overview">2013</h3>
+						<h4 class="overview">APPEALS</h4>
+						<h4 class="overview">REQUIREMENTS</h4>
+					</div>
+					<div class="overviewtopright">
+						<h3 class="overviewdark" id="covered">%</h3>
+						<h4 class="overviewdark">COVERED</h4>
+					</div>
+					<div id="donut">.</div>
+					<div class="overviewbottomleft">
+						<h4 class="overviewmediumlight">UNMET</h4>
+						<h4 class="overviewmediumlight">REQ'TS.</h4>
+						<h3 class="overviewmediumdark" id="unmet1"></h3>
+						<h4 class="overviewmediumdark" id="unmet2"></h4>
+					</div>
+					<div class="overviewbottomright">
+						<h4 class="overviewmediumlight">FUNDING</h4>
+						<h4 class="overviewmediumlight"></br></h4>
+						<h3 class="overviewdark" id="funding1"></h3>
+						<h4 class="overviewdark" id="funding2"></h4>
+					</div>
 				<script>
-				$('p#requirements').append(truncnumber(globaloverview.current_requirements))
-				$('p#funding').append(truncnumber(globaloverview.appeal_funding))
-				$('p#covered strong').after(Math.round(globaloverview.percent_funded*100))
-				$('p#unmet').append(truncnumber(globaloverview.current_requirements-globaloverview.appeal_funding))
+				donut(60,globaloverview.percent_funded,truncnumbermagnitude(globaloverview.current_requirements),magnitude,"#donut")
+				$('h3#covered').prepend(Math.round(globaloverview.percent_funded*100))
+				$('h3#unmet1').append(truncnumbermagnitude(globaloverview.current_requirements-globaloverview.appeal_funding))
+				$('h4#unmet2').append(magnitude)
+				$('h3#funding1').append(truncnumbermagnitude(globaloverview.appeal_funding))
+				$('h4#funding2').append(magnitude)
 				</script>
-				<h1 id="title" style="text-align: center">Current Year Strategic Response Plans</h1>
-				<table id="appeals" style="margin-left: auto;margin-right: auto;">
+				<div id="tablediv">
+				<table id="appeals">
 				</table>
+				</div>
 				<script>
 				thisyearappeals = appeal.filter(function(d){return d.year==2013 && d.type=="CAP"}).sort(function(a, b){var keyA = a.title.toUpperCase(),keyB = b.title.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;});
 				appeallen = thisyearappeals.length
 				halflen = Math.round(appeallen/2)
 				for(i=0;i<halflen;i++){
-					$('table#appeals').append("<tr id='appealtr"+i+"' style='border:1px solid black;'></tr>")
+					$('table#appeals').append("<tr id='appealtr"+i+"'></tr>")
 				}
 				for(i=0;i<appeallen;i++){
 					if(thisyearappeals[i].current_requirements>0){
-					$('tr#appealtr'+Math.floor(i/2)).append("<td class='clickable' id="+thisyearappeals[i].id+"><strong>"+thisyearappeals[i].title+"</strong></br>Requested: $"+truncnumber(thisyearappeals[i].current_requirements)+"</br>Funding: $"+truncnumber(thisyearappeals[i].funding)+"</br>Covered: "+Math.round((thisyearappeals[i].funding/thisyearappeals[i].current_requirements)*100)+"%</td>")
+					$('tr#appealtr'+Math.floor(i/2)).append("<td class='clickable' id="+thisyearappeals[i].id+"><div class='dark' id='title'>"+thisyearappeals[i].title.toUpperCase()+"</div><div id='row1'><div id='percent' class='dark'><strong>"+Math.round((thisyearappeals[i].funding/thisyearappeals[i].current_requirements)*100)+"%</strong></br>COVERED</div><div class='light' id='request'><strong>$"+truncnumber(thisyearappeals[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(thisyearappeals[i].funding/thisyearappeals[i].current_requirements,100,8)+"</div><div class='light' id='funding'><strong>$"+truncnumber(thisyearappeals[i].funding)+"</strong></br>FUNDING</div></td>")
 				}
-					else{$('tr#appealtr'+Math.floor(i/2)).append("<td class='clickable' id="+thisyearappeals[i].id+"><strong>"+thisyearappeals[i].title+"</strong></br>Requested: $"+truncnumber(thisyearappeals[i].current_requirements)+"</br>Funding: $"+truncnumber(thisyearappeals[i].funding)+"</br>Covered: "+100+"%</td>")}
+					else{$('tr#appealtr'+Math.floor(i/2)).append("<td class='clickable' id="+thisyearappeals[i].id+"><div class='dark' id='title'>"+thisyearappeals[i].title.toUpperCase()+"</div><div id='row1'><div id='percent' class='dark'><strong>"+Math.round(100)+"%</strong></br>COVERED</div><div class='light' id='request'><strong>$"+truncnumber(thisyearappeals[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(1,100,8)+"</div><div class='light' id='funding'><strong>$"+truncnumber(thisyearappeals[i].funding)+"</strong></br>FUNDING</div></td>")}
 				}
 				$('td').click(function(){window.location.replace("appeal.html?id="+this.id)})
 				</script>
 			</div>
 			<nav id="menu">
 				<ul>
-					<li><a href="index.html" id="home">Home</a></li>
+					<li><a href="index.html" id="home">HOME</a></li>
 					<li class="top">
-						<a href="aoverview.html?year=2013" id="current_appeal_overview">Appeals</a>
+						<a href="aoverview.html?year=2013" id="current_appeal_overview">APPEALS</a>
 						<ul>
 							<li class="Label">Year</li>
 							<li>
@@ -190,7 +208,7 @@
 						</ul>
 					</li>
 					<li class="top">
-						<a href="eoverview.html?year=2013" id="current_emergency_overview">Emergencies</a>
+						<a href="eoverview.html?year=2013" id="current_emergency_overview">EMERGENCIES</a>
 						<ul>
 							<li class="Label">Year</li>
 							<li><a href="eoverview.html?year=2013" id="2013_emergency_overview">2013</a>
@@ -280,7 +298,7 @@
 							<li><a href="#" id="Archive_emergency">Archive</a></li>
 						</ul>
 					</li>
-					<li class="top"><a href="go.html?year=2013" id="global_overview">Global Overview</a>
+					<li class="top"><a href="go.html?year=2013" id="global_overview">GLOBAL OVERVIEW</a>
 						<ul>
 							<li><a href="go.html?year=2013" id="global_overview_2013">2013</a></li>
 							<li><a href="go.html?year=2012" id="global_overview_2012">2012</a></li>
@@ -298,14 +316,14 @@
 							<li><a href="go.html?year=2000" id="global_overview_2000">2000</a></li>
 						</ul>
 					</li>
-					<li class="types"><span>Donors</span>
+					<li class="types"><span>DONORS</span>
 						<ul id="donors">
 						</ul>
 						<script>poporg("Government","donors")</script>	
 					</li>
-					<li><a href="#" id="about">About</a></li>
-					<li><a href="#" id="contact">Contact Us</a></li>
-					<li><a href="http://fts.unocha.org?media=desktop" id="desktop">Desktop site</a></li>
+					<li><a href="#" id="about">ABOUT</a></li>
+					<li><a href="#" id="contact">CONTACT</a></li>
+					<li><a href="http://fts.unocha.org?media=desktop" id="desktop">DESKTOP SITE</a></li>
 				</ul>
 			</nav>
 		</div>

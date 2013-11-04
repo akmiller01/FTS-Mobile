@@ -315,26 +315,31 @@ html.mm-blocking #mm-blocker
 .mm-is-menu *
 {
 	-webkit-text-size-adjust: none;
-	text-shadow: 0 1px 2px rgba( 0, 0, 0, 0.3 );
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 }
 .mm-is-menu li
 {
-	border-bottom: 1px solid rgba( 255, 255, 255, 0.1 );
+	border-bottom: 0px solid rgba( 255, 255, 255, 0.1 );
 }
 .mm-is-menu li:after
 {
-	border-bottom: 1px solid rgba( 0, 0, 0, 0.4 );
+	border-bottom: 1px solid #077eb1;
 }
 
 .mm-is-menu li,
 .mm-is-menu li > a,
 .mm-is-menu li > span
 {
-	color: #F5F5F5;
+	color: #0f6cb6;
 	text-decoration: none;
+	font-weight:bold;
 }
+
+a.mm-subopen{
+	color:#fcaf17 !important;
+}
+
 .mm-menu li.mm-selected > a,
 .mm-menu li.mm-selected > span
 {
@@ -348,11 +353,11 @@ html.mm-blocking #mm-blocker
 /* subopen/close */
 .mm-menu a.mm-subopen
 {
-	border-left: 1px solid rgba( 255, 255, 255, 0.1 );
+	border-left: 1px dashed #59d3f7;
 }
 .mm-menu a.mm-subopen:before
 {
-	border-left: 1px solid rgba( 0, 0, 0, 0.4 );
+	border-left: none;
 }
 .mm-menu a.mm-subclose
 {
@@ -438,6 +443,14 @@ html.mm-opened .mm-page
 	font-size: 11px;
 	font-style: normal;
 	color: rgba( 255, 255, 255, 0.4 );
+}
+
+.top em.mm-counter {
+	border-radius: 0px !important;
+	background: none !important;
+	box-shadow: none !important;
+	font-size: 11px;
+	color: #88e0f9;
 }
 
 

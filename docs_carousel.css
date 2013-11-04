@@ -4,7 +4,7 @@ html, body
 	margin: 0;
 }
 body {
-	background-color: #F5F5F5;
+	background-color: #11c0f3;
 	font-family: Arial, Helvetica, Verdana;
 	font-size: 14px;
 	line-height: 22px;
@@ -50,7 +50,7 @@ pre
 #header,
 .header
 {
-	background-image:url('logo_bg.jpg');
+	background-color: #0f6cb6;
 	background-size: 100%;
 	font-size: 16px;
 	font-weight: bold;
@@ -73,10 +73,7 @@ pre
 	top: 0;
 	left: 10px;
 }
-#header a.time,
-.header a.time
-{
-	background-image: url('time2.png');}
+
 #header a.right,
 .header a.right
 {
@@ -91,7 +88,8 @@ pre
 }
 
 img#logo {
-	width:200px;
+	float:right;
+	height:100%;
 }
 
 td.clickable {
