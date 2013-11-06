@@ -152,31 +152,29 @@ h3.overviewmediumdark{
 
 div.overviewtopleft {
 	float:left;
-	width:33%;
+	width:50%;
 }
 
 div.overviewtopright {
-	float:right;
-	width:34%;
+	float:left;
+	width:50%;
 	text-align:right;
 }
 
-div#donut{
-	width:34%;
-	float:left;
+
+td#overviewbottomleft {
+	width:33%;
+	text-align:right;
+}
+
+td#donut{
+	width:33%;
 	text-align:center;
-	color:#11c0f3;
+	height:200px;
 }
 
-div.overviewbottomleft {
-	float:left;
-	width:40%;
-	text-align:right;
-}
-
-div.overviewbottomright {
-	float:right;
-	width:40%;
+td#overviewbottomright {
+	width:33%;
 	text-align:left;
 }
 
@@ -196,7 +194,20 @@ table#appeals tr {
 	border:none;
 	background-color:#4dd0f6;
 	
-	vertical-align: top;
+	vertical-align: bottom;
+}
+
+table#emergencies{
+	margin-left: auto;
+	margin-right: auto;
+	border-spacing:15px;
+}
+
+table#emergencies tr {
+	border:none;
+	background-color:#4dd0f6;
+	
+	vertical-align: bottom;
 }
 
 td.clickable {
@@ -244,7 +255,7 @@ td.clickable div#row1 {
 	float:left;
 }
 
-td.clickable div.progressbar {
+div.progressbar {
 	text-align:center;
 	height:30px !important;
 	width:100%;
@@ -253,7 +264,7 @@ td.clickable div.progressbar {
 	float:left;
 }
 
-svg#progressbar{
+svg#progressbar, svg#donut{
     width: 95%;
 }
 
@@ -262,3 +273,11 @@ td.clickable div#funding {
 	padding-bottom:5px;
 	float:left;
 }
+
+div.row{
+	float:left;
+	width:100%;
+}
+
+table.overview {width:100%;}
+table.overview tr{vertical-align:middle;}

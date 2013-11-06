@@ -86,7 +86,7 @@ $(document).ready(function(){
     x= -r + (r*(Math.cos(a))),
     y= (r*(Math.sin(a)));
 
-$(parent).append("<svg width='"+radius*2+"px' height='"+radius*2+"px'><g transform='translate("+radius*2+","+radius*2+") scale(1,-1) rotate(90)'><path fill='#0094cc' class='remain' id='donut"+donutindex+"'/><path fill='#0f6cb6' class='commit' id='donut"+donutindex+"'/><circle fill='#11c0f3' r='"+radius*(3/5)+"' cx='"+radius+"' cy='"+radius+"'/></g><text id='text1' fill='#FFF' x='"+parseFloat(radius-27)+"' y='"+parseFloat(radius+4)+"' font-size='25'>"+text1+"</text><text id='text2' fill='#FFF' x='"+parseFloat(radius-25)+"' y='"+parseFloat(radius+15)+"'>"+text2+"</text></svg>")
+$(parent).append("<svg viewBox='0 0 "+radius*2+" "+radius*2+"' id='donut'><g transform='translate("+radius*2+","+radius*2+") scale(1,-1) rotate(90)'><path fill='#0094cc' class='remain' id='donut"+donutindex+"'/><path fill='#0f6cb6' class='commit' id='donut"+donutindex+"'/><circle fill='#11c0f3' r='"+radius*(3/5)+"' cx='"+radius+"' cy='"+radius+"'/></g><text id='text1' fill='#FFF' x='"+parseFloat(radius-27)+"' y='"+parseFloat(radius+4)+"' font-size='25'>"+text1+"</text><text id='text2' fill='#FFF' x='"+parseFloat(radius-25)+"' y='"+parseFloat(radius+15)+"'>"+text2+"</text></svg>")
 
 if (percentremain>0.5) {$("path#donut"+donutindex+".remain").attr("d","M"+r+","+r+" h"+r+" a"+r+","+r+" 0 1,1 "+x+","+y+" z")}
 else {$("path#donut"+donutindex+".remain").attr("d","M"+r+","+r+" h"+r+" a"+r+","+r+" 0 0,1 "+x+","+y+" z")}
@@ -95,7 +95,10 @@ else {$("path#donut"+donutindex+".commit").attr("d","M"+r+","+r+" h"+r+" a"+r+",
 donutindex +=1
 });}
 progressbar = function(covered,width,height){
+if(covered>1){covered=1}
+if(covered<0){covered=0}
 var coveredwidth = Math.round(width*covered),
-progressbar = "<svg id='progressbar' viewBox='0 0 "+width+" "+height+"'><rect id='total' width='"+width+"' height='"+height+"' fill='#ffe9b5'/><rect id='covered' width='"+coveredwidth+"' height='"+height+"' fill='#fcaf17'/></svg>";
+coveredfill = covered==1?"#f26522":"#fcaf17",
+progressbar = "<svg id='progressbar' viewBox='0 0 "+width+" "+height+"'><rect id='total' width='"+width+"' height='"+height+"' fill='#ffe9b5'/><rect id='covered' width='"+coveredwidth+"' height='"+height+"' fill='"+coveredfill+"'/></svg>";
 return progressbar;
 }

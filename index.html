@@ -48,30 +48,37 @@
 				<img id="logo" src="logo.png"/>
 			</div>
 			<div id="content">
+					<div class="row">
 					<div class="overviewtopleft">
 						<h3 class="overview">2013</h3>
-						<h4 class="overview">APPEALS</h4>
+						<h4 class="overview">APPEAL</h4>
 						<h4 class="overview">REQUIREMENTS</h4>
 					</div>
 					<div class="overviewtopright">
 						<h3 class="overviewdark" id="covered">%</h3>
 						<h4 class="overviewdark">COVERED</h4>
 					</div>
-					<div id="donut">.</div>
-					<div class="overviewbottomleft">
+					</div>
+					<table class="overview">
+					<tr>
+					<td id="overviewbottomleft">
 						<h4 class="overviewmediumlight">UNMET</h4>
 						<h4 class="overviewmediumlight">REQ'TS.</h4>
 						<h3 class="overviewmediumdark" id="unmet1"></h3>
 						<h4 class="overviewmediumdark" id="unmet2"></h4>
-					</div>
-					<div class="overviewbottomright">
+					</td>
+					<td id="donut">
+					</td>
+					<td id="overviewbottomright">
 						<h4 class="overviewmediumlight">FUNDING</h4>
 						<h4 class="overviewmediumlight"></br></h4>
 						<h3 class="overviewdark" id="funding1"></h3>
 						<h4 class="overviewdark" id="funding2"></h4>
-					</div>
+					</td>
+					</tr>
+					</table>
 				<script>
-				donut(60,globaloverview.percent_funded,truncnumbermagnitude(globaloverview.current_requirements),magnitude,"#donut")
+				donut(50,globaloverview.percent_funded,truncnumbermagnitude(globaloverview.current_requirements),magnitude,"#donut")
 				$('h3#covered').prepend(Math.round(globaloverview.percent_funded*100))
 				$('h3#unmet1').append(truncnumbermagnitude(globaloverview.current_requirements-globaloverview.appeal_funding))
 				$('h4#unmet2').append(magnitude)
@@ -95,7 +102,7 @@
 				}
 					else{$('tr#appealtr'+Math.floor(i/2)).append("<td class='clickable' id="+thisyearappeals[i].id+"><div class='dark' id='title'>"+thisyearappeals[i].title.toUpperCase()+"</div><div id='row1'><div id='percent' class='dark'><strong>"+Math.round(100)+"%</strong></br>COVERED</div><div class='light' id='request'><strong>$"+truncnumber(thisyearappeals[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(1,100,8)+"</div><div class='light' id='funding'><strong>$"+truncnumber(thisyearappeals[i].funding)+"</strong></br>FUNDING</div></td>")}
 				}
-				$('td').click(function(){window.location.replace("appeal.html?id="+this.id)})
+				$('td.clickable').click(function(){window.location.replace("appeal.html?id="+this.id)})
 				</script>
 			</div>
 			<nav id="menu">

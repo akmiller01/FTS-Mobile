@@ -59,12 +59,12 @@ html, body, #carousel, #carousel ul, #carousel li {
 }
 
 #carousel li h2 {
-    color: #fff;
-    font-size: 20px;
-    text-align: center;
+    color: #0f6cb6;
+    font-size: 25px;
     top: 0%;
     left: 0;
     width: 100%;
+    font-weight:100;
 }
 
 #carousel p {
@@ -83,6 +83,8 @@ html, body, #carousel, #carousel ul, #carousel li {
 
 #carousel a {
     color: #fff !important;
+    text-decoration:none !important;
+    font-weight:100 !important;
 }
 
 #carousel table {
@@ -91,29 +93,27 @@ font-size:15px;
 margin-left:auto;
 margin-right:auto;
 line-height:1;
-border: solid black 1px;
-border-collapse:collapse;
 margin-top:20px;
 margin-bottom:20px;
+border-spacing:15px;
 }
 
 #carousel table tr {border: solid white 1px;
 padding:5px;
+border-spacing:15px;
 }
 #carousel table th {border: solid white 1px;
 padding:5px;
+
+border-spacing:15px;
 }
-#carousel table td {border: solid white 1px; padding:10px;
+#carousel table td {
+    border: none;
 }
 
 tr.projects td {border:none;}
 
-#carousel li.pane1 { background: #3F7EAE; }
-#carousel li.pane2 { background: #528BB6; }
-#carousel li.pane3 { background: #6598BE; }
-#carousel li.pane4 { background: #79A5C6; }
-#carousel li.pane5 { background: #8CB2CE; }
-#carousel li.pane6 { background: #9FBFD7; }
+#carousel li.pane1, #carousel li.pane2, #carousel li.pane3, #carousel li.pane4, #carousel li.pane5, #carousel li.pane6 { background: #11c0f3;}
 
 table#progress {
     border:none !important;
@@ -160,21 +160,15 @@ ul.list, li.list {
     color:#fff;
     cursor:pointer;
     list-style: none;
-    
-}
-
-#carousel h4 {
-    color:#fff;
-    text-align:center;
-}
-
-ul.list {
-    padding-bottom:50px !important;
-    text-align:center;
+    line-height:2.25 !important;
 }
 
 div.sortdiv, div.sortdiv0 {
-    text-align:center;
+    color:#FFF;
+    float:left;
+    width:100%;
+    padding-left:10px;
+    padding-right:10px;
 }
 
 button{

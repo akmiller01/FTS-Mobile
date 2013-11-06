@@ -28,27 +28,44 @@
 				<img id="logo" src="logo.png"/>
 			</div>
 			<div id="content">
-				<h1 id="title" style="text-align: center"></h1><script>$('h1#title').text(GetUrlValue("year")+" Complex Emergencies")</script>
+				<div class="overviewtopleft">
+					<h3 class="overview" id="year"></h3><script>$('h3#year').text(GetUrlValue("year"))</script>
+					<h4 class="overview">COMPLEX</h4>
+					<h4 class="overview">EMERGENCIES</h4>
+				</div>
+				<div class="overviewtopright">
+					<h3 class="overviewdark" id="funding1"></h3>
+					<h4 class="overviewdark" id="funding2"></h4>
+					<h4 class="overviewdark">FUNDING</h4>
+				</div>
+				<div id="tablediv">
 				<table id="emergencies" style="margin-left: auto;margin-right: auto;">
 				</table>
+				</div>
 				<script>
 				thisyearemergencies = emergency.filter(function(d){return d.year==GetUrlValue("year") && d.type=="Complex Emergency"}).sort(function(a, b){var keyA = a.title.toUpperCase(),keyB = b.title.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;});
 				emergencylen = thisyearemergencies.length
+				totalemergencyfunding=0
+				for(i=0;i<emergencylen;i++){
+					totalemergencyfunding+=thisyearemergencies[i].funding
+				}
+				$('h3#funding1').append(truncnumbermagnitude(totalemergencyfunding))
+				$('h4#funding2').append(magnitude)
 				halflen = Math.round(emergencylen/2)
 				for(i=0;i<halflen;i++){
 					$('table#emergencies').append("<tr id='emergencytr"+i+"' style='border:1px solid black;'></tr>")
 				}
 				for(i=0;i<emergencylen;i++){
-					$('tr#emergencytr'+Math.floor(i/2)).append("<td class='clickable' id="+thisyearemergencies[i].id+"><strong>"+thisyearemergencies[i].title+"</strong></br>Funding: $"+truncnumber(thisyearemergencies[i].funding)+"</br></td>")
+					$('tr#emergencytr'+Math.floor(i/2)).append("<td class='clickable' id="+thisyearemergencies[i].id+"><div class='dark' id='title'>"+thisyearemergencies[i].title.toUpperCase()+"</div><div class='light' id='funding'><strong>$"+truncnumber(thisyearemergencies[i].funding)+"</strong></br>FUNDING</div></td>")
 				}
 				$('td').click(function(){window.location.replace("emergency.html?id="+this.id)})
 				</script>
 			</div>
 			<nav id="menu">
 				<ul>
-					<li><a href="index.html" id="home">Home</a></li>
+					<li><a href="index.html" id="home">HOME</a></li>
 					<li class="top">
-						<a href="aoverview.html?year=2013" id="current_appeal_overview">Appeals</a>
+						<a href="aoverview.html?year=2013" id="current_appeal_overview">APPEALS</a>
 						<ul>
 							<li class="Label">Year</li>
 							<li>
@@ -154,7 +171,7 @@
 						</ul>
 					</li>
 					<li class="top">
-						<a href="eoverview.html?year=2013" id="current_emergency_overview">Emergencies</a>
+						<a href="eoverview.html?year=2013" id="current_emergency_overview">EMERGENCIES</a>
 						<ul>
 							<li class="Label">Year</li>
 							<li><a href="eoverview.html?year=2013" id="2013_emergency_overview">2013</a>
@@ -244,7 +261,7 @@
 							<li><a href="#" id="Archive_emergency">Archive</a></li>
 						</ul>
 					</li>
-					<li class="top"><a href="go.html?year=2013" id="global_overview">Global Overview</a>
+					<li class="top"><a href="go.html?year=2013" id="global_overview">GLOBAL OVERVIEW</a>
 						<ul>
 							<li><a href="go.html?year=2013" id="global_overview_2013">2013</a></li>
 							<li><a href="go.html?year=2012" id="global_overview_2012">2012</a></li>
@@ -262,14 +279,14 @@
 							<li><a href="go.html?year=2000" id="global_overview_2000">2000</a></li>
 						</ul>
 					</li>
-					<li class="types"><span>Donors</span>
+					<li class="types"><span>DONORS</span>
 						<ul id="donors">
 						</ul>
 						<script>poporg("Government","donors")</script>	
 					</li>
-					<li><a href="#" id="about">About</a></li>
-					<li><a href="#" id="contact">Contact Us</a></li>
-					<li><a href="http://fts.unocha.org?media=desktop" id="desktop">Desktop site</a></li>
+					<li><a href="#" id="about">ABOUT</a></li>
+					<li><a href="#" id="contact">CONTACT</a></li>
+					<li><a href="http://fts.unocha.org?media=desktop" id="desktop">DESKTOP SITE</a></li>
 				</ul>
 			</nav>
 		</div>

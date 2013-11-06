@@ -48,28 +48,35 @@
 				<img id="logo" src="logo.png"/>
 			</div>
 			<div id="content">
+				<div class="row">
 				<div class="overviewtopleft">
-						<h3 class="overview" id="year"></h3><script>$('h3#year').text(GetUrlValue("year"))</script>
-						<h4 class="overview">APPEALS</h4>
-						<h4 class="overview">REQUIREMENTS</h4>
-					</div>
-					<div class="overviewtopright">
-						<h3 class="overviewdark" id="covered">%</h3>
-						<h4 class="overviewdark">COVERED</h4>
-					</div>
-					<div id="donut">.</div>
-					<div class="overviewbottomleft">
-						<h4 class="overviewmediumlight">UNMET</h4>
-						<h4 class="overviewmediumlight">REQ'TS.</h4>
-						<h3 class="overviewmediumdark" id="unmet1"></h3>
-						<h4 class="overviewmediumdark" id="unmet2"></h4>
-					</div>
-					<div class="overviewbottomright">
-						<h4 class="overviewmediumlight">FUNDING</h4>
-						<h4 class="overviewmediumlight"></br></h4>
-						<h3 class="overviewdark" id="funding1"></h3>
-						<h4 class="overviewdark" id="funding2"></h4>
-					</div>
+					<h3 class="overview" id="year"></h3><script>$('h3#year').text(GetUrlValue("year"))</script>
+					<h4 class="overview">APPEAL</h4>
+					<h4 class="overview">REQUIREMENTS</h4>
+				</div>
+				<div class="overviewtopright">
+					<h3 class="overviewdark" id="covered">%</h3>
+					<h4 class="overviewdark">COVERED</h4>
+				</div>
+				</div>
+				<table class="overview">
+				<tr>
+				<td id="overviewbottomleft">
+					<h4 class="overviewmediumlight">UNMET</h4>
+					<h4 class="overviewmediumlight">REQ'TS.</h4>
+					<h3 class="overviewmediumdark" id="unmet1"></h3>
+					<h4 class="overviewmediumdark" id="unmet2"></h4>
+				</td>
+				<td id="donut">
+				</td>
+				<td id="overviewbottomright">
+					<h4 class="overviewmediumlight">FUNDING</h4>
+					<h4 class="overviewmediumlight"></br></h4>
+					<h3 class="overviewdark" id="funding1"></h3>
+					<h4 class="overviewdark" id="funding2"></h4>
+				</td>
+				</tr>
+				</table>
 				<script>
 				donut(60,globaloverview.percent_funded,truncnumbermagnitude(globaloverview.current_requirements),magnitude,"#donut")
 				$('h3#covered').prepend(Math.round(globaloverview.percent_funded*100))

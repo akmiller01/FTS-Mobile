@@ -14,9 +14,8 @@ body {
 h1, h2, h3, h4, h5, h6
 {
 	line-height: 1;
-	color: #330;
-	font-weight: bold;
-	margin: 10px 0 10px 0;
+	font-weight: 100;
+	margin: 0px;
 }
 h1, h2, h3
 {
@@ -83,7 +82,7 @@ pre
 #content,
 .content
 {
-	padding: 0px;
+	margin: 0px;
 	line-height: 1.5;
 }
 
@@ -95,5 +94,146 @@ img#logo {
 td.clickable {
 	cursor:pointer;
 	border:1px solid black;
+	width:50%;}
+	
+img.progress {height:10px;}
+
+h3.overviewdark{
+	color:#0f6cb6;
+	font-weight:100;
+	font-size:30px;
+	margin:0px;
+}
+
+h4.overviewdark{
+	color:#0f6cb6;
+	margin:0px;
+	font-weight:100;
+	font-size:16px;
+}
+
+h3.overview{
+	color:#88e0f9;
+	font-weight:100;
+	font-size:30px;
+	margin:0px;
+}
+
+h4.overview{
+	color:#88e0f9;
+	margin:0px;
+	font-weight:100;
+	font-size:16px;
+}
+
+div.row{
+	float:left;
+	width:100%;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+div.cell{
+	float:left;
+	width:auto;
+	margin-right:5px;
+}
+
+div.progressbar {
+	text-align:center;
+	height:30px !important;
+	width:100%;
+	padding-top:1px;
+	padding-bottom:1px;
+	float:left;
+}
+
+svg#progressbar, svg#donut{
+    width: 95%;
+}
+
+h4.contents {
+	margin-top:15px;
+	color:#FFF;
+	font-weight:100;
+}
+
+img.bullet {
+	height:25px;
+	vertical-align: middle;
+}
+
+div.related {
+	float:right;
+	text-align:center;
+	cursor:pointer;
+	padding:5px;
+	background-color:#fcaf17;
+	margin-top:20px;
+}
+span.dark {
+	color:#0f6cb6 !important;
+}
+
+div.related span.dark {
+	font-weight:700;
+}
+
+div#subtitle {
+	color:#fff;
+}
+
+
+table#pane2table td, table#pane3table td, table#pane4table td, table#pane5table td {
+	padding:10px;
+	background-color:#4dd0f6;
+	vertical-align: bottom;
 	width:50%;
+	font-size:8px;
+}
+
+td div.dark {
+	color:#0f6cb6;
+}
+
+td div.light {
+	color:#a6e8fb;
+}
+
+td div#type {
+	font-weight:bold;
+	width:100%;
+	float:left;
+	font-size:14px !important;
+}
+
+td div#percent {
+	text-align:left;
+	padding-left:5px;
+	float:left;
+	width:auto;
+	padding-right:10px;
+}
+
+td div strong {
+	font-size:16px !important;;
+	font-weight:100;
+}
+
+td div#request {
+	text-align:left;
+	float:left;
+	width:auto;
+}
+td div#row1 {
+	width:100%;
+	float:left;
+}
+
+tr.clusters td, tr.projects td {
+	font-size:14px !important;
+}
+
+tr.clusters{
+	color:#0f6cb6;
 }
