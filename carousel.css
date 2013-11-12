@@ -96,6 +96,9 @@ line-height:1;
 margin-top:20px;
 margin-bottom:20px;
 border-spacing:15px;
+table-layout: fixed;
+word-wrap: break-word;
+width:100%;
 }
 
 #carousel table tr {border: solid white 1px;
