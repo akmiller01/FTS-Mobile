@@ -37,9 +37,9 @@
 			<div id="content">
 				<div id="carousel">
 					<ul>
-					    <li class="pane1"><table id="progress"><tr><td></td><td><img class="progress" src="progress/progress1of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables">Summary</h2>
+					    <li class="pane1"><table id="progress"><tr><td></td><td><img class="progress" src="progress/progress1of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables"></h2>
 						<form name="sortselect" action="" method="POST" onchange="ReloadYear()">
-						<div class="sortdiv"> <strong>Select year:</strong>
+						<div class="sortdiv"> SELECT YEAR:
 						<select id="yearselect">
 						<option value="2013">2013</option>
 						<option value="2012">2012</option>
@@ -58,15 +58,15 @@
 						</select>
 						</div>
 						</form>
-						<h4>Report contents (swipe or click to view):</h4><ul class="list"><li class="list" id="one"><a href="#">1. Summary </a></li><li class="list" id="two"><a href="#">2. Contributions grouped by recipient</a></li><li class="list" id="three"><a href="#">3. Contributions grouped by emergency</a></li><li class="list" id="four"><a href="#">4. Contributions grouped by appeal</a></li><li class="list" id="five"><a href="#">5. Contributions grouped by sector</a></li></ul></li>
-					    <li class="pane2"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress2of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables">Contributions grouped by recipient</h2>
+						<div class='row'><h4 class='contents'>INSIDE THE REPORT</h4></div><div class="row"><ul class="list"><li class="list" id="one"><a href="#"><img src="bullets/1.png" class="bullet"/> SUMMARY</a></li><li class="list" id="two"><a href="#"><img src="bullets/2.png" class="bullet"/> CONTRIBUTIONS PER RECIPIENT</a></li><li class="list" id="three"><a href="#"><img src="bullets/3.png" class="bullet"/> CONTRIBUTIONS PER EMERGENCY</a></li><li class="list" id="four"><a href="#"><img src="bullets/4.png" class="bullet"/> CONTRIBUTIONS PER APPEAL</a></li><li class="list" id="five"><a href="#"><img src="bullets/5.png" class="bullet"/> CONTRIBUTIONS PER SECTOR</a></li></ul></div></li>
+					    <li class="pane2"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress2of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class="row" id="subtitle"><h3 id="tables">CONTRIBUTIONS PER RECIPIENT</h3></div>
 						<form name="sortselect" action="" method="POST" onchange="RedrawRecipient()">
-						<div class="sortdiv0"> <strong>Filter by first letter:</strong>
+						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortrecipientletter">
 						<option value="All">All</option>
 						</select>
 						</div>
-						<div class="sortdiv"> <strong>Sort by:</strong>
+						<div class="sortdiv"> SORT BY:
 						<select id="sortrecipient">
 						<option value="name_asc">Title ascending</option>
 						<option value="name_desc">Title descending</option>
@@ -76,14 +76,14 @@
 						</div>
 						</form>
 					    </li>
-					    <li class="pane3"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress3of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables">Contributions grouped by emergency</h2>
+					    <li class="pane3"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress3of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class="row" id="subtitle"><h3 id="tables">CONTRIBUTIONS PER EMERGENCY</h3></div>
 						<form name="sortselect" action="" method="POST" onchange="RedrawEmergency()">
-						<div class="sortdiv0"> <strong>Filter by first letter:</strong>
+						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortemergencyletter">
 						<option value="All">All</option>
 						</select>
 						</div>
-						<div class="sortdiv"> <strong>Sort by:</strong>
+						<div class="sortdiv"> SORT BY:
 						<select id="sortemergency">
 						<option value="name_asc">Title ascending</option>
 						<option value="name_desc">Title descending</option>
@@ -93,14 +93,14 @@
 						</div>
 						</form>
 					    </li>
-					    <li class="pane4"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress4of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables">Contributions grouped by appeal</h2>
+					    <li class="pane4"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress4of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class="row" id="subtitle"><h3 id="tables">CONTRIBUTIONS PER APPEAL</h3></div>
 						<form name="sortselect" action="" method="POST" onchange="RedrawAppeal()">
-						<div class="sortdiv0"> <strong>Filter by first letter:</strong>
+						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortappealletter">
 						<option value="All">All</option>
 						</select>
 						</div>
-						<div class="sortdiv"> <strong>Sort by:</strong>
+						<div class="sortdiv"> SORT BY:
 						<select id="sortappeal">
 						<option value="name_asc">Title ascending</option>
 						<option value="name_desc">Title descending</option>
@@ -110,14 +110,14 @@
 						</div>
 						</form>
 					    </li>
-					    <li class="pane5"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress5of5.png"/></td><td></td></tr></table><h2 id="tables">Contributions grouped by sector</h2>
+					    <li class="pane5"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress5of5.png"/></td><td></td></tr></table><div class="row" id="subtitle"><h3 id="tables">CONTRIBUTIONS PER SECTOR</h3></div>
 						<form name="sortselect" action="" method="POST" onchange="RedrawSector()">
-						<div class="sortdiv0"> <strong>Filter by first letter:</strong>
+						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortsectorletter">
 						<option value="All">All</option>
 						</select>
 						</div>
-						<div class="sortdiv"> <strong>Sort by:</strong>
+						<div class="sortdiv"> SORT BY:
 						<select id="sortsector">
 						<option value="name_asc">Title ascending</option>
 						<option value="name_desc">Title descending</option>
@@ -137,11 +137,11 @@
 						$('li#four a').click(function(){carousel.showPane("3")})
 						$('li#five a').click(function(){carousel.showPane("4")})
 						thisorg = organization.filter(function(d){return d.id==GetUrlValue("id")})[0]
-						$(' li.pane1').prepend("<h2 id='breadcrumb'>"+thisorg.name+": "+GetUrlValue("year")+"</h2>")
-						$(' li.pane2').prepend("<h2 id='breadcrumb'>"+thisorg.name+": "+GetUrlValue("year")+"</h2>")
-						$(' li.pane3').prepend("<h2 id='breadcrumb'>"+thisorg.name+": "+GetUrlValue("year")+"</h2>")
-						$(' li.pane4').prepend("<h2 id='breadcrumb'>"+thisorg.name+": "+GetUrlValue("year")+"</h2>")
-						$(' li.pane5').prepend("<h2 id='breadcrumb'>"+thisorg.name+": "+GetUrlValue("year")+"</h2>")
+						$(' li.pane1 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisorg.name.toUpperCase()+": "+GetUrlValue("year")+"</h2></div>")
+						$(' li.pane2 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisorg.name.toUpperCase()+": "+GetUrlValue("year")+"</h2></div>")
+						$(' li.pane3 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisorg.name.toUpperCase()+": "+GetUrlValue("year")+"</h2></div>")
+						$(' li.pane4 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisorg.name.toUpperCase()+": "+GetUrlValue("year")+"</h2></div>")
+						$(' li.pane5 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisorg.name.toUpperCase()+": "+GetUrlValue("year")+"</h2></div>")
 						//Recipient Table Data
 						byrecipienttable = byrecipienttable.filter(function(d){return d.type!=null&d.amount>0}).sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;})
 						//Emergency Table Data
@@ -157,13 +157,14 @@
 							neworg = GetUrlValue("id");
 							window.location.assign("org.html?id="+neworg+"&year="+newyear)
 						}
-						$('li.pane1 form').after("<p id='pane1text'></p>")
-						$('p#pane1text').append("Total annual contributions: $"+truncnumber(thisorg.contribution))
+						$('li.pane1 form').after("<div class='row' id='overview1'><div class='cell'><h3 class='overviewdark' id='funding'></h3><h4 class='overviewdark'>FUNDING</h4></div></div>")
+						$('li.pane1 h3#funding').append("$"+truncnumber(thisorg.contribution))
 						//Pane 2
 						recipientletters = []
 						$('li.pane2 form').after("<table id='pane2table'></table>")
+						for(i=0;i<Math.round(byrecipienttable.length/2);i++){$('table#pane2table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<byrecipienttable.length;i++){
-							$('table#pane2table').append("<tr><td><strong>Recipient: </strong>"+byrecipienttable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(byrecipienttable[i].amount)+"</td></tr>")
+							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+byrecipienttable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(byrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = byrecipienttable[i].type.charAt(0).toUpperCase()
 							if(!recipientletters.contains(currentletter)){
 								recipientletters.push(currentletter)
@@ -178,13 +179,15 @@
 									else{if(selected=="contrib_asc"){newbyrecipienttable = byrecipienttable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
 										else{newbyrecipienttable = byrecipienttable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}}}
 							$('table#pane2table').html("")
+							for(i=0;i<Math.round(newbyrecipienttable.length/2);i++){$('table#pane2table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbyrecipienttable.length;i++){
-							$('table#pane2table').append("<tr><td><strong>Recipient: </strong>"+newbyrecipienttable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(newbyrecipienttable[i].amount)+"</td></tr>")}}
+							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbyrecipienttable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(newbyrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")}}
 						//Pane 3
 						emergencyletters = []
 						$('li.pane3 form').after("<table id='pane3table'></table>")
+						for(i=0;i<Math.round(byemergencytable.length/2);i++){$('table#pane3table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<byemergencytable.length;i++){
-							$('table#pane3table').append("<tr><td><strong>Emergency: </strong>"+byemergencytable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(byemergencytable[i].amount)+"</td></tr>")
+							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+byemergencytable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(byemergencytable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = byemergencytable[i].type.charAt(0).toUpperCase()
 							if(!emergencyletters.contains(currentletter)){
 								emergencyletters.push(currentletter)
@@ -199,13 +202,15 @@
 									else{if(selected=="contrib_asc"){newbyemergencytable = byemergencytable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
 										else{newbyemergencytable = byemergencytable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}}}
 							$('table#pane3table').html("")
+							for(i=0;i<Math.round(newbyemergencytable.length/2);i++){$('table#pane3table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbyemergencytable.length;i++){
-							$('table#pane3table').append("<tr><td><strong>Emergency: </strong>"+newbyemergencytable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(newbyemergencytable[i].amount)+"</td></tr>")}}
+							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbyemergencytable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(newbyemergencytable[i].amount)+"</strong></br>FUNDING</div></td>")}}
 						//Pane 4
 						appealletters = []
 						$('li.pane4 form').after("<table id='pane4table'></table>")
+						for(i=0;i<Math.round(byappealtable.length/2);i++){$('table#pane4table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<byappealtable.length;i++){
-							$('table#pane4table').append("<tr><td><strong>Appeal: </strong>"+byappealtable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(byappealtable[i].amount)+"</td></tr>")
+							$('table#pane4table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+byappealtable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(byappealtable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = byappealtable[i].type.charAt(0).toUpperCase()
 							if(!appealletters.contains(currentletter)){
 								appealletters.push(currentletter)
@@ -220,13 +225,15 @@
 									else{if(selected=="contrib_asc"){newbyappealtable = byappealtable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
 										else{newbyappealtable = byappealtable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}}}
 							$('table#pane4table').html("")
+							for(i=0;i<Math.round(newbyappealtable.length/2);i++){$('table#pane4table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbyappealtable.length;i++){
-							$('table#pane4table').append("<tr><td><strong>Appeal: </strong>"+newbyappealtable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(newbyappealtable[i].amount)+"</td></tr>")}}
+							$('table#pane4table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbyappealtable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(newbyappealtable[i].amount)+"</strong></br>FUNDING</div></td>")}}
 						//Pane 5
 						sectorletters = []
 						$('li.pane5 form').after("<table id='pane5table'></table>")
+						for(i=0;i<Math.round(bysectortable.length/2);i++){$('table#pane5table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<bysectortable.length;i++){
-							$('table#pane5table').append("<tr><td><strong>Sector: </strong>"+bysectortable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(bysectortable[i].amount)+"</td></tr>")
+							$('table#pane5table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+bysectortable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(bysectortable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = bysectortable[i].type.charAt(0).toUpperCase()
 							if(!sectorletters.contains(currentletter)){
 								sectorletters.push(currentletter)
@@ -241,17 +248,18 @@
 									else{if(selected=="contrib_asc"){newbysectortable = bysectortable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
 										else{newbysectortable = bysectortable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}}}
 							$('table#pane5table').html("")
+							for(i=0;i<Math.round(newbysectortable.length/2);i++){$('table#pane5table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbysectortable.length;i++){
-							$('table#pane5table').append("<tr><td><strong>Sector: </strong>"+newbysectortable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(newbysectortable[i].amount)+"</td></tr>")}}
+							$('table#pane5table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbysectortable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(newbysectortable[i].amount)+"</strong></br>FUNDING</div></td>")}}
 						</script>
 					</ul>
 				</div>
 			</div>
 			<nav id="menu">
 				<ul>
-					<li><a href="index.html" id="home">Home</a></li>
+					<li><a href="index.html" id="home">HOME</a></li>
 					<li class="top">
-						<a href="aoverview.html?year=2013" id="current_appeal_overview">Appeals</a>
+						<a href="aoverview.html?year=2013" id="current_appeal_overview">APPEALS</a>
 						<ul>
 							<li class="Label">Year</li>
 							<li>
@@ -357,7 +365,7 @@
 						</ul>
 					</li>
 					<li class="top">
-						<a href="eoverview.html?year=2013" id="current_emergency_overview">Emergencies</a>
+						<a href="eoverview.html?year=2013" id="current_emergency_overview">EMERGENCIES</a>
 						<ul>
 							<li class="Label">Year</li>
 							<li><a href="eoverview.html?year=2013" id="2013_emergency_overview">2013</a>
@@ -447,7 +455,7 @@
 							<li><a href="#" id="Archive_emergency">Archive</a></li>
 						</ul>
 					</li>
-					<li class="top"><a href="go.html?year=2013" id="global_overview">Global Overview</a>
+					<li class="top"><a href="go.html?year=2013" id="global_overview">GLOBAL OVERVIEW</a>
 						<ul>
 							<li><a href="go.html?year=2013" id="global_overview_2013">2013</a></li>
 							<li><a href="go.html?year=2012" id="global_overview_2012">2012</a></li>
@@ -465,14 +473,14 @@
 							<li><a href="go.html?year=2000" id="global_overview_2000">2000</a></li>
 						</ul>
 					</li>
-					<li class="types"><span>Donors</span>
+					<li class="types"><span>DONORS</span>
 						<ul id="donors">
 						</ul>
 						<script>poporg("Government","donors")</script>	
 					</li>
-					<li><a href="#" id="about">About</a></li>
-					<li><a href="#" id="contact">Contact Us</a></li>
-					<li><a href="http://fts.unocha.org?media=desktop" id="desktop">Desktop site</a></li>
+					<li><a href="#" id="about">ABOUT</a></li>
+					<li><a href="#" id="contact">CONTACT</a></li>
+					<li><a href="http://fts.unocha.org?media=desktop" id="desktop">DESKTOP SITE</a></li>
 				</ul>
 			</nav>
 		</div>

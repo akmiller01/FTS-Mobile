@@ -163,18 +163,18 @@ div.overviewtopright {
 
 
 td#overviewbottomleft {
-	width:33%;
+	width:25%;
 	text-align:right;
 }
 
 td#donut{
-	width:33%;
+	width:50%;
 	text-align:center;
-	height:200px;
+	height:250px;
 }
 
 td#overviewbottomright {
-	width:33%;
+	width:25%;
 	text-align:left;
 }
 
@@ -223,6 +223,7 @@ td.clickable div.dark {
 
 td.clickable div.light {
 	color:#a6e8fb;
+	color:rgba(255, 255, 255, 0.72) !important;
 }
 
 td.clickable div#title {

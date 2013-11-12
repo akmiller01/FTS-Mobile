@@ -75,9 +75,26 @@ $('nav#menu').mmenu({
 });
 $(document).ready(function(){$('li.top em').text("BY YEAR");
                   $('li.types em').hide();});
-donutindex = 0
-donut = function(radius,covered,text1,text2,parent){
-$(document).ready(function(){
+//donutindex = 0
+//donut = function(radius,covered,text1,text2,parent){
+//$(document).ready(function(){
+//    if(covered>=1){covered=.999999}
+//    if(covered<=0){covered=.000001}
+//    var percentremain = 1-covered,
+//    a = Math.PI*2*percentremain,
+//    r = radius,
+//    x= -r + (r*(Math.cos(a))),
+//    y= (r*(Math.sin(a)));
+//
+//$(parent).append("<svg viewBox='0 0 "+radius*2+" "+radius*2+"' id='donut'><g transform='translate("+radius*2+","+radius*2+") scale(1,-1) rotate(90)'><path fill='#0094cc' class='remain' id='donut"+donutindex+"'/><path fill='#0f6cb6' class='commit' id='donut"+donutindex+"'/><circle fill='#11c0f3' r='"+radius*(3/5)+"' cx='"+radius+"' cy='"+radius+"'/></g><text id='text1' fill='#FFF' x='"+parseFloat(radius-27)+"' y='"+parseFloat(radius+4)+"' font-size='25'>"+text1+"</text><text id='text2' fill='#FFF' x='"+parseFloat(radius-25)+"' y='"+parseFloat(radius+15)+"'>"+text2+"</text></svg>")
+//
+//if (percentremain>0.5) {$("path#donut"+donutindex+".remain").attr("d","M"+r+","+r+" h"+r+" a"+r+","+r+" 0 1,1 "+x+","+y+" z")}
+//else {$("path#donut"+donutindex+".remain").attr("d","M"+r+","+r+" h"+r+" a"+r+","+r+" 0 0,1 "+x+","+y+" z")}
+//if (percentremain>0.5) {$("path#donut"+donutindex+".commit").attr("d","M"+r+","+r+" h"+r+" a"+r+","+r+" 0 0,0 "+x+","+y+" z")}
+//else {$("path#donut"+donutindex+".commit").attr("d","M"+r+","+r+" h"+r+" a"+r+","+r+" 0 1,0 "+x+","+y+" z")}
+//donutindex +=1
+//});}
+donut = function(radius,covered,text1,text2){
     if(covered>=1){covered=.999999}
     if(covered<=0){covered=.000001}
     var percentremain = 1-covered,
@@ -86,14 +103,9 @@ $(document).ready(function(){
     x= -r + (r*(Math.cos(a))),
     y= (r*(Math.sin(a)));
 
-$(parent).append("<svg viewBox='0 0 "+radius*2+" "+radius*2+"' id='donut'><g transform='translate("+radius*2+","+radius*2+") scale(1,-1) rotate(90)'><path fill='#0094cc' class='remain' id='donut"+donutindex+"'/><path fill='#0f6cb6' class='commit' id='donut"+donutindex+"'/><circle fill='#11c0f3' r='"+radius*(3/5)+"' cx='"+radius+"' cy='"+radius+"'/></g><text id='text1' fill='#FFF' x='"+parseFloat(radius-27)+"' y='"+parseFloat(radius+4)+"' font-size='25'>"+text1+"</text><text id='text2' fill='#FFF' x='"+parseFloat(radius-25)+"' y='"+parseFloat(radius+15)+"'>"+text2+"</text></svg>")
-
-if (percentremain>0.5) {$("path#donut"+donutindex+".remain").attr("d","M"+r+","+r+" h"+r+" a"+r+","+r+" 0 1,1 "+x+","+y+" z")}
-else {$("path#donut"+donutindex+".remain").attr("d","M"+r+","+r+" h"+r+" a"+r+","+r+" 0 0,1 "+x+","+y+" z")}
-if (1-percentremain<0.5) {$("path#donut"+donutindex+".commit").attr("d","M"+r+","+r+" h"+r+" a"+r+","+r+" 0 0,0 "+x+","+y+" z")}
-else {$("path#donut"+donutindex+".commit").attr("d","M"+r+","+r+" h"+r+" a"+r+","+r+" 0 1,0 "+x+","+y+" z")}
-donutindex +=1
-});}
+if (percentremain>0.5) {return "<svg viewBox='0 0 "+radius*2+" "+radius*2+"' id='donut'><g transform='translate("+radius*2+","+radius*2+") scale(1,-1) rotate(90)'><path fill='#0094cc' class='remain' d='M"+r+","+r+" h"+r+" a"+r+","+r+" 0 1,1 "+x+","+y+" z'/><path fill='#0f6cb6' class='commit' d='M"+r+","+r+" h"+r+" a"+r+","+r+" 0 0,0 "+x+","+y+" z'/><circle fill='#11c0f3' r='"+radius*(3/5)+"' cx='"+radius+"' cy='"+radius+"'/></g><text id='text1' fill='#FFF' x='"+parseFloat(radius-27)+"' y='"+parseFloat(radius+2)+"' font-size='25'>"+text1+"</text><text id='text2' fill='#FFF' x='"+parseFloat(radius-26)+"' y='"+parseFloat(radius+14)+"'>"+text2+"</text></svg>";}
+else {return "<svg viewBox='0 0 "+radius*2+" "+radius*2+"' id='donut'><g transform='translate("+radius*2+","+radius*2+") scale(1,-1) rotate(90)'><path fill='#0094cc' class='remain' d='M"+r+","+r+" h"+r+" a"+r+","+r+" 0 0,1 "+x+","+y+" z'/><path fill='#0f6cb6' class='commit' d='M"+r+","+r+" h"+r+" a"+r+","+r+" 0 1,0 "+x+","+y+" z'/><circle fill='#11c0f3' r='"+radius*(3/5)+"' cx='"+radius+"' cy='"+radius+"'/></g><text id='text1' fill='#FFF' x='"+parseFloat(radius-27)+"' y='"+parseFloat(radius+2)+"' font-size='25'>"+text1+"</text><text id='text2' fill='#FFF' x='"+parseFloat(radius-26)+"' y='"+parseFloat(radius+14)+"'>"+text2+"</text></svg>";}
+}
 progressbar = function(covered,width,height){
 if(covered>1){covered=1}
 if(covered<0){covered=0}
