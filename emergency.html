@@ -32,15 +32,15 @@
 			<div id="content">
 				<div id="carousel">
 					<ul>
-					    <li class="pane1"><table id="progress"><tr><td></td><td><img class="progress" src="progress/progress1of3.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables">Summary</h2><h4>Report contents (swipe or click to view):</h4><ul class="list"><li class="list" id="one"><a href="#">1. Summary</a></li><li class="list" id="two"><a href="#">2. Funding per Recipient Organization</a></li><li class="list" id="three"><a href="#">3. Funding per Donor</a></li></ul></li>
-					    <li class="pane2"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress2of3.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables">Funding per Recipient Organization (Table C)</h2>
+					    <li class="pane1"><table id="progress"><tr><td></td><td><img class="progress" src="progress/progress1of3.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables"></h2><div class='row'><h4 class='contents'>INSIDE THE REPORT</h4></div><div class="row"><ul class="list"><li class="list" id="one"><a href="#"><img src="bullets/1.png" class="bullet"/> SUMMARY</a></li><li class="list" id="two"><a href="#"><img src="bullets/2.png" class="bullet"/> FUNDING PER APPEALING ORG.</a></li><li class="list" id="three"><a href="#"><img src="bullets/3.png" class="bullet"/> FUNDING PER DONOR</a></li></ul></div></li>
+					    <li class="pane2"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress2of3.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class="row" id="subtitle"><h3 id="tables">FUNDING PER APPEALING ORGANISATION</h3></div>
 					    <form name="sortselect" action="" method="POST" onchange="RedrawRecipient()">
-						<div class="sortdiv0"> <strong>Filter by first letter:</strong>
+						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortrecipientletter">
 						<option value="All">All</option>
 						</select>
 						</div>
-						<div class="sortdiv"> <strong>Sort by:</strong>
+						<div class="sortdiv"> SORT BY:
 						<select id="sortrecipient">
 						<option value="name_asc">Title ascending</option>
 						<option value="name_desc">Title descending</option>
@@ -50,14 +50,14 @@
 						</div>
 						</form>
 					    </li>
-					    <li class="pane3"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress3of3.png"/></td><td></td></tr></table><h2 id="tables">Total Funding per Donor (Table G)</h2>
+					    <li class="pane3"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress3of3.png"/></td><td></td></tr></table><div class="row" id="subtitle"><h3 id="tables">FUNDING PER DONOR</h3></div>
 					    <form name="sortselect" action="" method="POST" onchange="RedrawDonor()">
-						<div class="sortdiv0"> <strong>Filter by first letter:</strong>
+						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortdonorletter">
 						<option value="All">All</option>
 						</select>
 						</div>
-						<div class="sortdiv"> <strong>Sort by:</strong>
+						<div class="sortdiv"> SORT BY:
 						<select id="sortdonor">
 						<option value="name_asc">Title ascending</option>
 						<option value="name_desc">Title descending</option>
@@ -77,23 +77,23 @@
 						$('li#four a').click(function(){carousel.showPane("3")})
 						$('li#five a').click(function(){carousel.showPane("4")})
 						thisemergency = emergency.filter(function(d){return d.id==GetUrlValue("id")})[0]
-						$(' li.pane1').prepend("<h2 id='breadcrumb'>"+thisemergency.type+": "+thisemergency.title+"</h2>")
-						$(' li.pane2').prepend("<h2 id='breadcrumb'>"+thisemergency.type+": "+thisemergency.title+"</h2>")
-						$(' li.pane3').prepend("<h2 id='breadcrumb'>"+thisemergency.type+": "+thisemergency.title+"</h2>")
-						$(' li.pane4').prepend("<h2 id='breadcrumb'>"+thisemergency.type+": "+thisemergency.title+"</h2>")
-						$(' li.pane5').prepend("<h2 id='breadcrumb'>"+thisemergency.type+": "+thisemergency.title+"</h2>")
+						$(' li.pane1 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisemergency.title.toUpperCase()+" "+thisemergency.type.toUpperCase()+"</h2></div>")
+						$(' li.pane2 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisemergency.title.toUpperCase()+" "+thisemergency.type.toUpperCase()+"</h2></div>")
+						$(' li.pane3 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisemergency.title.toUpperCase()+" "+thisemergency.type.toUpperCase()+"</h2></div>")
 						//Recipient Table Data
 						byrecipienttable = recipientfunding.grouping.filter(function(d){return d.type!=null&d.amount>0}).sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;})
 						//Donor Table Data
 						bydonortable = donorfunding.grouping.filter(function(d){return d.type!=null&d.amount>0}).sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;})
 						//Pane 1
-						$('li.pane1 h2#tables').after("<p id='pane1text'></p>")
-						$('p#pane1text').append("Funding: $"+truncnumber(thisemergency.funding)+"</br>Pledges: $"+truncnumber(thisemergency.pledges))
+						$('li.pane1 h2#tables').after("<div class='row' id='overview1'><div class='cell'><h3 class='overviewdark' id='funding'></h3><h4 class='overviewdark'>FUNDING</h4></div><div class='cell'><h3 class='overview' id='pledges'></h3><h4 class='overview'>PLEDGED</h4></div></div>")
+						$('li.pane1 h3#funding').append("$"+truncnumber(thisemergency.funding))
+						$('li.pane1 h3#pledges').append("$"+truncnumber(thisemergency.pledges))
 						//Pane 2
 						recipientletters = []
 						$('li.pane2 form').after("<table id='pane2table'></table>")
+						for(i=0;i<Math.round(byrecipienttable.length/2);i++){$('table#pane2table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<byrecipienttable.length;i++){
-							$('table#pane2table').append("<tr><td><strong>Recipient Agency: </strong>"+byrecipienttable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(byrecipienttable[i].amount)+"</td></tr>")
+							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+byrecipienttable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(byrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = byrecipienttable[i].type.charAt(0).toUpperCase()
 							if(!recipientletters.contains(currentletter)){
 								recipientletters.push(currentletter)
@@ -108,13 +108,15 @@
 									else{if(selected=="contrib_asc"){newbyrecipienttable = byrecipienttable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
 										else{newbyrecipienttable = byrecipienttable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}}}
 							$('table#pane2table').html("")
+							for(i=0;i<Math.round(newbyrecipienttable.length/2);i++){$('table#pane2table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbyrecipienttable.length;i++){
-							$('table#pane2table').append("<tr><td><strong>Recipient Agency: </strong>"+newbyrecipienttable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(newbyrecipienttable[i].amount)+"</td></tr>")}}
+							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbyrecipienttable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(newbyrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")}}
 						//Pane 3
 						donorletters = []
 						$('li.pane3 form').after("<table id='pane3table'></table>")
+						for(i=0;i<Math.round(bydonortable.length/2);i++){$('table#pane3table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<bydonortable.length;i++){
-							$('table#pane3table').append("<tr><td><strong>Donor: </strong>"+bydonortable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(bydonortable[i].amount)+"</td></tr>")
+							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+bydonortable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(bydonortable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = bydonortable[i].type.charAt(0).toUpperCase()
 							if(!donorletters.contains(currentletter)){
 								donorletters.push(currentletter)
@@ -129,20 +131,21 @@
 									else{if(selected=="contrib_asc"){newbydonortable = bydonortable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
 										else{newbydonortable = bydonortable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}}}
 							$('table#pane3table').html("")
+							for(i=0;i<Math.round(newbydonortable.length/2);i++){$('table#pane3table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbydonortable.length;i++){
-							$('table#pane3table').append("<tr><td><strong>Donor: </strong>"+newbydonortable[i].type+"</br><strong>Funding: </strong>$"+truncnumber(newbydonortable[i].amount)+"</td></tr>")}}
+							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbydonortable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(newbydonortable[i].amount)+"</strong></br>FUNDING</div></td>")}}
 						matchingappeal = appeal.filter(function(d){return d.country==thisemergency.country && d.year==thisemergency.year})
 						matchlen = matchingappeal.length
-						for(i=0;i<matchlen;i++){$('li.pane1').append("<p id='list'>See also: <a href='appeal.html?id="+matchingappeal[i].id+"'>"+matchingappeal[i].type+" - "+matchingappeal[i].title+" ▼</a></p>")}	
+						for(i=0;i<matchlen;i++){$('li.pane1').append("<a href='appeal.html?id="+matchingappeal[i].id+"'><div class='related'>SEE ALSO</br><span class='dark'>"+matchingappeal[i].title.toUpperCase()+" ▼</span></div></a>")}
 												</script>
 					</ul>
 				</div>
 			</div>
 			<nav id="menu">
 				<ul>
-					<li><a href="index.html" id="home">Home</a></li>
+					<li><a href="index.html" id="home">HOME</a></li>
 					<li class="top">
-						<a href="aoverview.html?year=2013" id="current_appeal_overview">Appeals</a>
+						<a href="aoverview.html?year=2013" id="current_appeal_overview">APPEALS</a>
 						<ul>
 							<li class="Label">Year</li>
 							<li>
@@ -248,7 +251,7 @@
 						</ul>
 					</li>
 					<li class="top">
-						<a href="eoverview.html?year=2013" id="current_emergency_overview">Emergencies</a>
+						<a href="eoverview.html?year=2013" id="current_emergency_overview">EMERGENCIES</a>
 						<ul>
 							<li class="Label">Year</li>
 							<li><a href="eoverview.html?year=2013" id="2013_emergency_overview">2013</a>
@@ -338,7 +341,7 @@
 							<li><a href="#" id="Archive_emergency">Archive</a></li>
 						</ul>
 					</li>
-					<li class="top"><a href="go.html?year=2013" id="global_overview">Global Overview</a>
+					<li class="top"><a href="go.html?year=2013" id="global_overview">GLOBAL OVERVIEW</a>
 						<ul>
 							<li><a href="go.html?year=2013" id="global_overview_2013">2013</a></li>
 							<li><a href="go.html?year=2012" id="global_overview_2012">2012</a></li>
@@ -356,14 +359,14 @@
 							<li><a href="go.html?year=2000" id="global_overview_2000">2000</a></li>
 						</ul>
 					</li>
-					<li class="types"><span>Donors</span>
+					<li class="types"><span>DONORS</span>
 						<ul id="donors">
 						</ul>
 						<script>poporg("Government","donors")</script>	
 					</li>
-					<li><a href="#" id="about">About</a></li>
-					<li><a href="#" id="contact">Contact Us</a></li>
-					<li><a href="http://fts.unocha.org?media=desktop" id="desktop">Desktop site</a></li>
+					<li><a href="#" id="about">ABOUT</a></li>
+					<li><a href="#" id="contact">CONTACT</a></li>
+					<li><a href="http://fts.unocha.org?media=desktop" id="desktop">DESKTOP SITE</a></li>
 				</ul>
 			</nav>
 		</div>
