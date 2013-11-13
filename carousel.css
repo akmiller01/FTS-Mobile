@@ -1,4 +1,4 @@
-#menu{background-color: #ABE0F9;}
+#menu{background-color: #11c0f3;}
 
 html, body, #carousel, #carousel ul, #carousel li {
     min-height: 100%;
@@ -64,7 +64,7 @@ html, body, #carousel, #carousel ul, #carousel li {
     top: 0%;
     left: 0;
     width: 100%;
-    font-weight:bold;
+    font-weight:100;
 }
 
 #carousel p {
@@ -82,7 +82,7 @@ html, body, #carousel, #carousel ul, #carousel li {
 }
 
 #carousel a {
-    color: #00A7E4 !important;
+    color: #fff !important;
     text-decoration:none !important;
     font-weight:100 !important;
 }
@@ -116,7 +116,7 @@ border-spacing:15px;
 
 tr.projects td {border:none;}
 
-#carousel li.pane1, #carousel li.pane2, #carousel li.pane3, #carousel li.pane4, #carousel li.pane5, #carousel li.pane6 { background: #ABE0F9;}
+#carousel li.pane1, #carousel li.pane2, #carousel li.pane3, #carousel li.pane4, #carousel li.pane5, #carousel li.pane6 { background: #11c0f3;}
 
 table#progress {
     border:none !important;
@@ -167,7 +167,7 @@ ul.list, li.list {
 }
 
 div.sortdiv, div.sortdiv0 {
-    color:#00A7E4;
+    color:#FFF;
     float:left;
     width:100%;
     padding-left:10px;

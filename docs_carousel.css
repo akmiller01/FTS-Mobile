@@ -4,7 +4,7 @@ html, body
 	margin: 0;
 }
 body {
-	background-color: #ABE0F9;
+	background-color: #11c0f3;
 	font-family: Arial, Helvetica, Verdana;
 	font-size: 14px;
 	line-height: 22px;
@@ -113,14 +113,14 @@ h4.overviewdark{
 }
 
 h3.overview{
-	color:#0094cc;
+	color:#88e0f9;
 	font-weight:100;
 	font-size:30px;
 	margin:0px;
 }
 
 h4.overview{
-	color:#0094cc;
+	color:#88e0f9;
 	margin:0px;
 	font-weight:100;
 	font-size:16px;
@@ -154,7 +154,7 @@ svg#progressbar, svg#donut{
 
 h4.contents {
 	margin-top:15px;
-	color:#00A7E4;
+	color:#FFF;
 	font-weight:100;
 }
 
@@ -170,8 +170,6 @@ div.related {
 	padding:5px;
 	background-color:#fcaf17;
 	margin-top:20px;
-	color:#FFF;
-	font-weight:bold;
 }
 span.dark {
 	color:#0f6cb6 !important;
@@ -182,23 +180,24 @@ div.related span.dark {
 }
 
 div#subtitle {
-	color:#00A7E4;
+	color:#fff;
 }
 
 
 table#pane2table td, table#pane3table td, table#pane4table td, table#pane5table td {
-	background-color:#CFF0FF;
+	background-color:#4dd0f6;
 	vertical-align: bottom;
 	width:50%;
 	font-size:8px;
 }
 
 td div.dark {
-	color:#026BB5;
+	color:#0f6cb6;
 }
 
 td div.light {
-	color:#66BAFF;
+	color:#a6e8fb;
+	color:rgba(255, 255, 255, 0.72) !important;
 }
 
 td div#type {
