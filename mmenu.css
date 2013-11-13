@@ -192,7 +192,7 @@ html.mm-opened body
 }
 
 li.top a.mm-subopen
-{width:65px !important;}
+{width:60px !important;}
 
 .mm-menu a.mm-subopen:before
 {
@@ -353,7 +353,7 @@ a.mm-subopen{
 /* subopen/close */
 .mm-menu a.mm-subopen
 {
-	border-left: 1px dashed #59d3f7;
+	border-left: 1px dashed #CFF0FF;
 }
 .mm-menu a.mm-subopen:before
 {
@@ -450,7 +450,7 @@ html.mm-opened .mm-page
 	background: none !important;
 	box-shadow: none !important;
 	font-size: 11px;
-	color: #88e0f9;
+	color: #66BAFF;
 }
 
 

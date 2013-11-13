@@ -78,7 +78,7 @@
 				</tr>
 				</table>
 				<script>
-				donut(60,globaloverview.percent_funded,truncnumbermagnitude(globaloverview.current_requirements),magnitude,"#donut")
+				$('td#donut').append(donut(50,globaloverview.percent_funded,truncnumbermagnitude(globaloverview.current_requirements),magnitude))
 				$('h3#covered').prepend(Math.round(globaloverview.percent_funded*100))
 				$('h3#unmet1').append(truncnumbermagnitude(globaloverview.current_requirements-globaloverview.appeal_funding))
 				$('h4#unmet2').append(magnitude)
