@@ -353,7 +353,7 @@ a.mm-subopen{
 /* subopen/close */
 .mm-menu a.mm-subopen
 {
-	border-left: 1px dashed #59d3f7;
+	border-left: 1px dashed rgba(255, 255, 255, 0.5);
 }
 .mm-menu a.mm-subopen:before
 {
@@ -442,15 +442,14 @@ html.mm-opened .mm-page
 	box-shadow: 0 0 2px rgba( 0, 0, 0, 0.3 );
 	font-size: 11px;
 	font-style: normal;
-	color: rgba( 255, 255, 255, 0.4 );
 }
 
-.top em.mm-counter {
+em.mm-counter {
 	border-radius: 0px !important;
 	background: none !important;
 	box-shadow: none !important;
 	font-size: 11px;
-	color: #88e0f9;
+	color: #66BAFF;
 }
 
 
