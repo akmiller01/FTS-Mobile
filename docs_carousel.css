@@ -1,138 +1,12 @@
-html, body
-{
-	padding: 0;
-	margin: 0;
-}
-body {
-	background-color: #ABE0F9;
-	font-family: Arial, Helvetica, Verdana;
-	font-size: 14px;
-	line-height: 22px;
-	color: #333;
-	-webkit-text-size-adjust: none;
-}
+/** reference this css file after docs.css, these are overrrides of the main styles. **/
 h1, h2, h3, h4, h5, h6
 {
-	line-height: 1;
 	font-weight: 100;
 	margin: 0px;
 }
-h1, h2, h3
-{
-	font-size: 18px;
-}
-h4, h5, h6
-{
-	font-size: 16px;
-}
-p
-{
-	margin: 0 0 10px 0;
-}
-a, a:link, a:active, a:visited, a:hover
-{
-	color: #333;
-	text-decoration: underline;
-}
-pre
-{
-	font-size: 12px;
-	width: 100%;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
-}
-#page nav
-{
-	display: none;
-}
 
-#header,
-.header
-{
-	background-color: #0f6cb6;
-	background-size: 100%;
-	font-size: 16px;
-	font-weight: bold;
-	color: #fff;
-	text-align: center;
-	line-height: 40px;
-	height: 40px;
-	padding: 0 50px;
-}
-#header a,
-.header a
-{
-	background: center center no-repeat transparent;
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAE1JREFUeNpi/P//PwOtARMDHQBdLGFBYt+nkR2KjEhxQqvIYaR7cD2glSWMo0mY3DiJo5Edi4ZPEqZ7nMSP5pPRon60qB9NwpQDgAADAMIxHUJvWs/TAAAAAElFTkSuQmCC);
-
-	display: block;
-	width: 40px;
-	height: 40px;
-	position: absolute;
-	top: 0;
-	left: 10px;
-}
-
-#header a.right,
-.header a.right
-{
-	left: auto;
-	right: 10px;
-}
-#content,
-.content
-{
-	margin: 0px;
-	line-height: 1.5;
-}
-
-img#logo {
-	height:40px;
-	position:absolute;
-	right:0px;
-}
-
-td.clickable {
-	cursor:pointer;
-	border:1px solid black;
-	width:50%;}
-	
 img.progress {height:10px;}
 
-h3.overviewdark{
-	color:#0f6cb6;
-	font-weight:100;
-	font-size:30px;
-	margin:0px;
-}
-
-h4.overviewdark{
-	color:#0f6cb6;
-	margin:0px;
-	font-weight:100;
-	font-size:16px;
-}
-
-h3.overview{
-	color:#0094cc;
-	font-weight:100;
-	font-size:30px;
-	margin:0px;
-}
-
-h4.overview{
-	color:#0094cc;
-	margin:0px;
-	font-weight:100;
-	font-size:16px;
-}
-
-div.row{
-	float:left;
-	width:100%;
-	padding-left:10px;
-	padding-right:10px;
-}
 
 div.cell{
 	float:left;
@@ -140,22 +14,8 @@ div.cell{
 	margin-right:5px;
 }
 
-div.progressbar {
-	text-align:center;
-	height:30px !important;
-	width:100%;
-	padding-top:1px;
-	padding-bottom:1px;
-	float:left;
-}
-
-svg#progressbar, svg#donut{
-    width: 95%;
-}
-
 h4.contents {
 	margin-top:15px;
-	color:#00A7E4;
 	font-weight:100;
 }
 
@@ -174,9 +34,7 @@ div.related {
 	color:#FFF;
 	font-weight:bold;
 }
-span.dark {
-	color:#0f6cb6 !important;
-}
+
 
 div.related span.dark {
 	font-weight:700;
@@ -186,35 +44,17 @@ div#subtitle {
 	color:#00A7E4;
 }
 
-
 table#pane2table td, table#pane3table td, table#pane4table td, table#pane5table td {
-	background-color:rgba(255, 255, 255, 0.5);
 	vertical-align: bottom;
 	width:50%;
-	font-size:8px;
+	font-size:11px;
 }
 
-td div.dark {
-	color:#026BB5;
-}
-
-td div.light {
-	color:#66BAFF;
-}
-
-td div#type {
+div#type {
 	font-weight:bold;
 	width:100%;
 	float:left;
 	font-size:14px !important;
-}
-
-td div#percent {
-	text-align:left;
-	float:left;
-	width:auto;
-	padding-right:10px;
-	padding-left:5px;
 }
 
 td div#amount {
@@ -223,25 +63,7 @@ td div#amount {
 	float:left;
 }
 
-td div strong {
-	font-size:16px !important;;
-	font-weight:100;
-}
-
-td div#request {
-	text-align:left;
-	float:left;
-	width:auto;
-}
-td div#row1 {
-	width:100%;
-	float:left;
-}
-
 tr.clusters td, tr.projects td {
 	font-size:14px !important;
 }
 
-tr.clusters{
-	color:#0f6cb6;
-}

@@ -81,7 +81,7 @@ pre
 #content,
 .content
 {
-	padding: 10px;
+	padding: 10px 0px 10px 10px;
 }
 
 img#logo {
@@ -89,15 +89,23 @@ img#logo {
 	position:absolute;
 	right:0px;
 }
-
+/*
 div#overview {
 	width:250px;
 	margin-right:auto;
 	margin-left:auto;
-	border:solid black 1px;
+	border:solid red 1px;
 	padding:5px;
-}
+}*/
 
+
+/**** general font colors ****/
+.dark {	color:#026BB5 !important;}  /** alt: #0f6cb6 **/
+.light {	color:#66BAFF !important;}
+.mediumlight{ color:#00A7E4 !important;}
+.mediumdark{color:#0094cc !important;}
+
+/** home page ***/
 h3.overview {
 	color:#FFF;
 	margin:0px;
@@ -112,45 +120,6 @@ h4.overview{
 	font-size:12px;
 }
 
-h3.overviewdark{
-	color:#026BB5;
-	margin:0px;
-	font-weight:100;
-	font-size:30px;
-}
-
-h4.overviewdark{
-	color:#026BB5;
-	margin:0px;
-	font-weight:100;
-	font-size:12px;
-}
-
-h4.overviewmediumlight{
-	color:#66BAFF;
-	margin:0px;
-	font-weight:100;
-	font-size:12px;
-}
-h3.overviewmediumlight{
-	color:#66BAFF;
-	margin:0px;
-	font-weight:100;
-	font-size:30px;
-}
-h4.overviewmediumdark{
-	color:#0094cc;
-	margin:0px;
-	font-weight:100;
-	font-size:12px;
-}
-h3.overviewmediumdark{
-	color:#0094cc;
-	margin:0px;
-	font-weight:100;
-	font-size:30px;
-}
-
 div.overviewtopleft {
 	float:left;
 	width:50%;
@@ -161,7 +130,6 @@ div.overviewtopright {
 	width:50%;
 	text-align:right;
 }
-
 
 td#overviewbottomleft {
 	width:25%;
@@ -179,7 +147,10 @@ td#overviewbottomright {
 	text-align:left;
 }
 
+table.overview {width:100%;}
+table.overview tr{vertical-align:middle;}
 
+/*** grid of appeals/emergencies ***/
 div#tablediv{
 	float:left;
 	width:100%;
@@ -194,11 +165,6 @@ table#appeals{
         width:100%;
 }
 
-table#appeals tr {
-	border:none;
-	background-color:rgba(255, 255, 255, 0.5);
-	vertical-align: bottom;
-}
 
 table#emergencies{
 	margin-left: auto;
@@ -215,74 +181,64 @@ table#emergencies tr {
 	vertical-align: bottom;
 }
 
-td.clickable {
-	cursor:pointer;
+/***  Grid elements **/
+td.grid {
 	border:none;
 	width:50%;
-	font-size:8px;
+	font-size:11px;
+	padding: 8px;
+	vertical-align: bottom;
+	background-color:rgba(255, 255, 255, 0.5);
 }
 
-td.clickable div.dark {
-	color:#026BB5;
-}
+td.clickable {cursor:pointer;}
 
-td.clickable div.light {
-	color:#66BAFF;
-}
-
-td.clickable div#title {
+td div.title {
 	font-weight:bold;
 	width:100%;
 	float:left;
 	font-size:14px !important;
 }
 
-td.clickable div#percent {
+td div.percent {
 	text-align:left;
-	padding-left:5px;
 	float:left;
 	width:auto;
 	padding-right:10px;
 }
 
-td.clickable div strong {
-	font-size:16px;
-	font-weight:100;
-}
-
-td.clickable div#request {
+td div.request {
 	text-align:left;
 	float:left;
 	width:auto;
 }
-td.clickable div#row1 {
+
+td div.funding {
+	float:left;
+}
+
+td div strong {
+	font-size:16px;
+	font-weight:100;
+}
+
+/*** generic group row **/
+div.grouprow {
 	width:100%;
 	float:left;
 }
 
+/**** progressbar ***/
 div.progressbar {
-	text-align:center;
+	text-align:left;
 	height:30px !important;
 	width:100%;
-	padding-top:1px;
-	padding-bottom:1px;
+	padding :2px 0px;
 	float:left;
 }
 
 svg#progressbar, svg#donut{
-    width: 95%;
+    width: 98%;
 }
 
-td.clickable div#funding {
-	padding-left:5px;
-	padding-bottom:5px;
-	float:left;
-}
 
-div.row{
-	float:left;
-	width:100%;
-}
-
-table.overview {width:100%;}
-table.overview tr{vertical-align:middle;}

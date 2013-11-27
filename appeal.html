@@ -6,7 +6,8 @@
 		<meta name="robots" content="noindex, nofollow" />
 
 		<title>FTS Mobile Test Page</title>
-
+		
+		<link type="text/css" rel="stylesheet" href="docs.css" />
 		<link type="text/css" rel="stylesheet" href="docs_carousel.css" />
 		<link type="text/css" rel="stylesheet" href="mmenu.css" />
 		<link type="text/css" rel="stylesheet" media="all and (min-width: 900px)" href="mmenu-widescreen.css" />
@@ -35,8 +36,13 @@
 			<div id="content">
 				<div id="carousel">
 					<ul>
-					    <li class="pane1"><table id="progress"><tr><td></td><td><img class="progress" src="progress/progress1of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables"></h2><div class='row'><h4 class='contents'>INSIDE THE REPORT</h4></div><div class="row"><ul class="list"><li class="list" id="one"><a href="#"><img src="bullets/1.png" class="bullet"/> SUMMARY</a></li><li class="list" id="two"><a href="#"><img src="bullets/2.png" class="bullet"/> REQ'TS & FUNDING PER APPEALING ORG.</a></li><li class="list" id="three"><a href="#"><img src="bullets/3.png" class="bullet"/> REQ'TS & FUNDING PER CLUSTER</a></li><li class="list" id="four"><a href="#"><img src="bullets/4.png" class="bullet"/> TOTAL FUNDING PER DONOR</a></li><li class="list" id="five"><a href="#"><img src="bullets/5.png" class="bullet"/> LIST OF APPEAL PROJECTS</a></li></ul></div></li>
-					    <li class="pane2"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress2of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class="row" id="subtitle"><h3 id="tables">REQUIREMENTS AND FUNDING PER APPEALING ORGANISATION</h3></div>
+					    <li class="pane1">
+						<table id="progress"><tr><td></td><td><img class="progress" src="progress/progress1of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table>
+						<h2 id="tables"></h2>
+						<div class="grouprow">
+						<h4 class='contents mediumlight'>INSIDE THE REPORT</h4></div><div class='grouprow'><ul class="list"><li class="list" id="one"><a href="#"><img src="bullets/1.png" class="bullet"/> SUMMARY</a></li><li class="list" id="two"><a href="#"><img src="bullets/2.png" class="bullet"/> REQ'TS & FUNDING PER APPEALING ORG.</a></li><li class="list" id="three"><a href="#"><img src="bullets/3.png" class="bullet"/> REQ'TS & FUNDING PER CLUSTER</a></li><li class="list" id="four"><a href="#"><img src="bullets/4.png" class="bullet"/> TOTAL FUNDING PER DONOR</a></li><li class="list" id="five"><a href="#"><img src="bullets/5.png" class="bullet"/> LIST OF APPEAL PROJECTS</a></li></ul></div>
+						</li>
+					    <li class="pane2"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress2of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class='grouprow' id="subtitle"><h3 class="mediumdark">REQUIREMENTS AND FUNDING PER APPEALING ORGANISATION</h3></div>
 					    <form name="sortselect" action="" method="POST" onchange="RedrawRecipient()">
 						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortrecipientletter">
@@ -53,7 +59,7 @@
 						</div>
 						</form>
 					    </li>
-					    <li class="pane3"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress3of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class="row" id="subtitle"><h3 id="tables">REQUIREMENTS AND FUNDING PER CLUSTER</h3></div>
+					    <li class="pane3"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress3of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class='grouprow' id="subtitle"><h3 class="mediumdark">REQUIREMENTS AND FUNDING PER CLUSTER</h3></div>
 					    <form name="sortselect" action="" method="POST" onchange="RedrawCluster()">
 						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortclusterletter">
@@ -70,7 +76,7 @@
 						</div>
 						</form>
 					    </li>
-					    <li class="pane4"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress4of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class="row" id="subtitle"><h3 id="tables">TOTAL FUNDING PER DONOR</h3></div>
+					    <li class="pane4"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress4of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class='grouprow' id="subtitle"><h3 class="mediumdark">TOTAL FUNDING PER DONOR</h3></div>
 					    <form name="sortselect" action="" method="POST" onchange="RedrawDonor()">
 						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortdonorletter">
@@ -87,7 +93,7 @@
 						</div>
 						</form>
 					    </li>
-					    <li class="pane5"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress5of5.png"/></td><td></td></tr></table><div class="row" id="subtitle"><h3 id="tables">LIST OF APPEAL PROJECTS WITH FUNDING STATUS, GROUPED BY CLUSTER</h3></div></li>
+					    <li class="pane5"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress5of5.png"/></td><td></td></tr></table><div class='grouprow' id="subtitle"><h3 class="mediumdark">LIST OF APPEAL PROJECTS WITH FUNDING STATUS, GROUPED BY CLUSTER</h3></div></li>
 					    <script>
 						$('div#carousel').hide()
 						$('td.back a').click(function(){carousel.prev()})
@@ -98,11 +104,12 @@
 						$('li#four a').click(function(){carousel.showPane("3")})
 						$('li#five a').click(function(){carousel.showPane("4")})
 						thisappeal = appeal.filter(function(d){return d.id==GetUrlValue("id")})[0]
-						$(' li.pane1 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisappeal.title.toUpperCase()+" "+thisappeal.type.toUpperCase()+"</h2></div>")
-						$(' li.pane2 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisappeal.title.toUpperCase()+" "+thisappeal.type.toUpperCase()+"</h2></div>")
-						$(' li.pane3 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisappeal.title.toUpperCase()+" "+thisappeal.type.toUpperCase()+"</h2></div>")
-						$(' li.pane4 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisappeal.title.toUpperCase()+" "+thisappeal.type.toUpperCase()+"</h2></div>")
-						$(' li.pane5 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisappeal.title.toUpperCase()+" "+thisappeal.type.toUpperCase()+"</h2></div>")
+						$(' li.pane1 table#progress').after("<div class='grouprow'><h2 id='breadcrumb'>"+thisappeal.title.toUpperCase()+" "+thisappeal.type.toUpperCase()+"</h2></div>")
+						$(' li.pane2 table#progress').after("<div class='grouprow'><h2 id='breadcrumb'>"+thisappeal.title.toUpperCase()+" "+thisappeal.type.toUpperCase()+"</h2></div>")
+						$(' li.pane3 table#progress').after("<div class='grouprow'><h2 id='breadcrumb'>"+thisappeal.title.toUpperCase()+" "+thisappeal.type.toUpperCase()+"</h2></div>")
+						$(' li.pane4 table#progress').after("<div class='grouprow'><h2 id='breadcrumb'>"+thisappeal.title.toUpperCase()+" "+thisappeal.type.toUpperCase()+"</h2></div>")
+						$(' li.pane5 table#progress').after("<div class='grouprow'><h2 id='breadcrumb'>"+thisappeal.title.toUpperCase()+" "+thisappeal.type.toUpperCase()+"</h2></div>")
+						
 						//Recipient Table Data
 						byrecipienttable = recipientfunding.grouping.filter(function(d){return d.type!=null&d.amount>0}).sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;})
 						recipientlen = byrecipienttable.length
@@ -113,6 +120,7 @@
 							for(j=0;j<projectlen;j++){byrecipienttable[i].current_requirements+=byrecipienttable[i].projects[j].current_requirements}
 							byrecipienttable[i].percent_funded=byrecipienttable[i].current_requirements>0?(byrecipienttable[i].amount/byrecipienttable[i].current_requirements):1
 							}
+						
 						//Cluster Table Data
 						byclustertable = clusterfunding.grouping.filter(function(d){return d.type!=null&d.amount>0}).sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;})
 						clusterlen = byclustertable.length
@@ -123,9 +131,11 @@
 							for(j=0;j<projectlen;j++){byclustertable[i].current_requirements+=byclustertable[i].projects[j].current_requirements}
 							byclustertable[i].percent_funded=byclustertable[i].current_requirements>0?(byclustertable[i].amount/byclustertable[i].current_requirements):1
 							}
+						
 						//Donor Table Data
 						bydonortable = donorfunding.grouping.filter(function(d){return d.type!=null&d.amount>0}).sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;})
 						donorlen = bydonortable.length
+						
 						//Nested Project Array
 						projectsbycluster = []
 						totalprojectlen = project.length
@@ -154,25 +164,28 @@
 								projectsbycluster[i].projects[j].percent_funded=projectsbycluster[i].projects[j].current_requirements>0?(projectsbycluster[i].projects[j].funding/projectsbycluster[i].projects[j].current_requirements):1}
 							projectsbycluster[i].percent_funded=projectsbycluster[i].current_requirements>0?(projectsbycluster[i].funding/projectsbycluster[i].current_requirements):1
 						}
-						//Pane 1
-						$('li.pane1 h2#tables').after("<div class='row' id='overview1'><div class='cell'><h3 class='overviewdark' id='covered'>%</h3><h4 class='overviewdark'>COVERED</h4></div><div class='cell'><h3 class='overview' id='request'></h3><h4 class='overview'>REQUESTED</h4></div></div>")
+						
+						// DRAWING Pane 1, overview
+						$('li.pane1 h2#tables').after("<div class='grouprow' id='overview1'><div class='cell'><h3 class='overview dark' id='covered'>%</h3><h4 class='overview dark'>COVERED</h4></div><div class='cell'><h3 class='overview mediumdark' id='request'></h3><h4 class='overview mediumdark'>REQUESTED</h4></div></div>")
 						$('li.pane1 h3#covered').prepend(thisappeal.current_requirements>0?Math.round((thisappeal.funding/thisappeal.current_requirements)*100):"100")
 						$('li.pane1 h3#request').append("$"+truncnumber(thisappeal.current_requirements))
 						$('li.pane1 div#overview1').after("<div class='progressbar'>"+progressbar((thisappeal.current_requirements>0?(thisappeal.funding/thisappeal.current_requirements):1),100,4)+"</div>")
-						$('li.pane1 div.progressbar').after("<div class='row' id='overview2'><div class='cell'><h3 class='overview' id='funding'></h3><h4 class='overview'>FUNDING</h4></div></div>")
+						$('li.pane1 div.progressbar').after("<div class='grouprow' id='overview2'><div class='cell'><h3 class='overview mediumdark' id='funding'></h3><h4 class='overview mediumdark'>FUNDING</h4></div></div>")
 						$('li.pane1 h3#funding').append("$"+truncnumber(thisappeal.funding))
-						//Pane 2
+						
+						//Drawing Pane 2, per organisation
 						recipientletters = []
 						$('li.pane2 form').after("<table id='pane2table'></table>")
 						for(i=0;i<Math.round(byrecipienttable.length/2);i++){$('table#pane2table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<byrecipienttable.length;i++){
-							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+byrecipienttable[i].type.toUpperCase()+"</div><div id='row1'><div id='percent' class='dark'><strong>"+Math.round((byrecipienttable[i].percent_funded)*100)+"%</strong></br>COVERED</div><div class='light' id='request'><strong>$"+truncnumber(byrecipienttable[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(byrecipienttable[i].percent_funded,100,8)+"</div><div class='light' id='amount'><strong>$"+truncnumber(byrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")
+							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td class='grid'><div class='dark' id='type'>"+byrecipienttable[i].type.toUpperCase()+"</div><div class='grouprow'><div id='percent' class='dark percent'><strong>"+Math.round((byrecipienttable[i].percent_funded)*100)+"%</strong></br>COVERED</div><div class='mediumdark request' id='request'><strong>$"+truncnumber(byrecipienttable[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(byrecipienttable[i].percent_funded,100,8)+"</div><div class='mediumdark funding' id='amount'><strong>$"+truncnumber(byrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = byrecipienttable[i].type.charAt(0).toUpperCase()
 							if(!recipientletters.contains(currentletter)){
 								recipientletters.push(currentletter)
 								$('select#sortrecipientletter').append("<option value='"+currentletter+"'>"+currentletter+"</option>")
 								}
 						}
+						// demo to sort
 						RedrawRecipient = function(){
 							selected = $('#sortrecipient').val()
 							selectedletter = $('#sortrecipientletter').val()
@@ -183,19 +196,22 @@
 							$('table#pane2table').html("")
 							for(i=0;i<Math.round(newbyrecipienttable.length/2);i++){$('table#pane2table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbyrecipienttable.length;i++){
-							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbyrecipienttable[i].type.toUpperCase()+"</div><div id='row1'><div id='percent' class='dark'><strong>"+Math.round((newbyrecipienttable[i].percent_funded)*100)+"%</strong></br>COVERED</div><div class='light' id='request'><strong>$"+truncnumber(newbyrecipienttable[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(newbyrecipienttable[i].percent_funded,100,8)+"</div><div class='light' id='amount'><strong>$"+truncnumber(newbyrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")}}
-						//Pane 3
+							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbyrecipienttable[i].type.toUpperCase()+"</div><div class='grouprow'><div id='percent' class='dark'><strong>"+Math.round((newbyrecipienttable[i].percent_funded)*100)+"%</strong></br>COVERED</div><div class='mediumdark' id='request'><strong>$"+truncnumber(newbyrecipienttable[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(newbyrecipienttable[i].percent_funded,100,8)+"</div><div class='mediumdark' id='amount'><strong>$"+truncnumber(newbyrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")}}
+						
+						//Pane 3 
+						// CLUSTER PANE.  
 						clusterletters = []
 						$('li.pane3 form').after("<table id='pane3table'></table>")
 						for(i=0;i<Math.round(byclustertable.length/2);i++){$('table#pane3table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<byclustertable.length;i++){
-							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+byclustertable[i].type.toUpperCase()+"</div><div id='row1'><div id='percent' class='dark'><strong>"+Math.round((byclustertable[i].percent_funded)*100)+"%</strong></br>COVERED</div><div class='light' id='request'><strong>$"+truncnumber(byclustertable[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(byclustertable[i].percent_funded,100,8)+"</div><div class='light' id='amount'><strong>$"+truncnumber(byclustertable[i].amount)+"</strong></br>FUNDING</div></td>")
+							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td class='grid'><div class='dark' id='type'>"+byclustertable[i].type.toUpperCase()+"</div><div class='grouprow'><div id='percent' class='dark percent'><strong>"+Math.round((byclustertable[i].percent_funded)*100)+"%</strong></br>COVERED</div><div class='mediumdark request' id='request'><strong>$"+truncnumber(byclustertable[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(byclustertable[i].percent_funded,100,8)+"</div><div class='mediumdark funding' id='amount'><strong>$"+truncnumber(byclustertable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = byclustertable[i].type.charAt(0).toUpperCase()
 							if(!clusterletters.contains(currentletter)){
 								clusterletters.push(currentletter)
 								$('select#sortclusterletter').append("<option value='"+currentletter+"'>"+currentletter+"</option>")
 								}
 						}
+						// to demo sorting
 						RedrawCluster = function(){
 							selected = $('#sortcluster').val()
 							selectedletter = $('#sortclusterletter').val()
@@ -206,19 +222,21 @@
 							$('table#pane3table').html("")
 							for(i=0;i<Math.round(newbyclustertable.length/2);i++){$('table#pane3table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbyclustertable.length;i++){
-							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbyclustertable[i].type.toUpperCase()+"</div><div id='row1'><div id='percent' class='dark'><strong>"+Math.round((newbyclustertable[i].percent_funded)*100)+"%</strong></br>COVERED</div><div class='light' id='request'><strong>$"+truncnumber(newbyclustertable[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(newbyclustertable[i].percent_funded,100,8)+"</div><div class='light' id='amount'><strong>$"+truncnumber(newbyclustertable[i].amount)+"</strong></br>FUNDING</div></td>")}}
-						//Pane 4
+							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td class='grid'><div class='dark' id='type'>"+newbyclustertable[i].type.toUpperCase()+"</div><div class='grouprow'><div id='percent' class='dark percent'><strong>"+Math.round((newbyclustertable[i].percent_funded)*100)+"%</strong></br>COVERED</div><div class='mediumdark request' id='request'><strong>$"+truncnumber(newbyclustertable[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(newbyclustertable[i].percent_funded,100,8)+"</div><div class='mediumdark funding' id='amount'><strong>$"+truncnumber(newbyclustertable[i].amount)+"</strong></br>FUNDING</div></td>")}}
+						
+						//Pane 4 By donor
 						donorletters = []
 						$('li.pane4 form').after("<table id='pane4table'></table>")
 						for(i=0;i<Math.round(bydonortable.length/2);i++){$('table#pane4table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<bydonortable.length;i++){
-							$('table#pane4table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+bydonortable[i].type.toUpperCase()+"</div><div id='row1'><div id='percent' class='light'><strong>"+truncnumber(bydonortable[i].amount)+"</strong></br>FUNDING</div></td>")
+							$('table#pane4table tr#tr'+Math.floor(i/2)).append("<td class='grid'><div class='dark' id='type'>"+bydonortable[i].type.toUpperCase()+"</div><div class='grouprow'><div id='percent' class='mediumdark'><strong>"+truncnumber(bydonortable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = bydonortable[i].type.charAt(0).toUpperCase()
 							if(!donorletters.contains(currentletter)){
 								donorletters.push(currentletter)
 								$('select#sortdonorletter').append("<option value='"+currentletter+"'>"+currentletter+"</option>")
 								}
 						}
+						// demo to sort
 						RedrawDonor = function(){
 							selected = $('#sortdonor').val()
 							selectedletter = $('#sortdonorletter').val()
@@ -229,8 +247,9 @@
 							$('table#pane4table').html("")
 							for(i=0;i<Math.round(newbydonortable.length/2);i++){$('table#pane4table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbydonortable.length;i++){
-							$('table#pane4table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbydonortable[i].type.toUpperCase()+"</div><div id='row1'><div id='percent' class='light'><strong>"+truncnumber(newbydonortable[i].amount)+"</strong></br>FUNDING</div></td>")}}
-						//Pane 5
+							$('table#pane4table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbydonortable[i].type.toUpperCase()+"</div><div class='grouprow'><div id='percent' class='light'><strong>"+truncnumber(newbydonortable[i].amount)+"</strong></br>FUNDING</div></td>")}}
+						
+						//Pane 5 by project
 						$('li.pane5 div#subtitle').after("<table id='pane5table'></table>")
 						
 						for(i=0;i<projectsbycluster.length;i++){
@@ -476,7 +495,6 @@
 			</nav>
 		</div>
 		<script src="carousel.js"></script>
-		<script src="ga.js"></script>
 		<script>
 			$('a').not('a[href*="menu"]').click(function(){});
 			$('div#carousel').show()

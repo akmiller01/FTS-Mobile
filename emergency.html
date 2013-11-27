@@ -6,7 +6,8 @@
 		<meta name="robots" content="noindex, nofollow" />
 
 		<title>FTS Mobile Test Page</title>
-
+		
+		<link type="text/css" rel="stylesheet" href="docs.css" />
 		<link type="text/css" rel="stylesheet" href="docs_carousel.css" />
 		<link type="text/css" rel="stylesheet" href="mmenu.css" />
 		<link type="text/css" rel="stylesheet" media="all and (min-width: 900px)" href="mmenu-widescreen.css" />
@@ -32,8 +33,8 @@
 			<div id="content">
 				<div id="carousel">
 					<ul>
-					    <li class="pane1"><table id="progress"><tr><td></td><td><img class="progress" src="progress/progress1of3.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables"></h2><div class='row'><h4 class='contents'>INSIDE THE REPORT</h4></div><div class="row"><ul class="list"><li class="list" id="one"><a href="#"><img src="bullets/1.png" class="bullet"/> SUMMARY</a></li><li class="list" id="two"><a href="#"><img src="bullets/2.png" class="bullet"/> FUNDING PER APPEALING ORG.</a></li><li class="list" id="three"><a href="#"><img src="bullets/3.png" class="bullet"/> FUNDING PER DONOR</a></li></ul></div></li>
-					    <li class="pane2"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress2of3.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class="row" id="subtitle"><h3 id="tables">FUNDING PER APPEALING ORGANISATION</h3></div>
+					    <li class="pane1"><table id="progress"><tr><td></td><td><img class="progress" src="progress/progress1of3.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables"></h2><div class='grouprow'><h4 class='contents mediumlight'>INSIDE THE REPORT</h4></div><div class='grouprow'><ul class="list"><li class="list" id="one"><a href="#"><img src="bullets/1.png" class="bullet"/> SUMMARY</a></li><li class="list" id="two"><a href="#"><img src="bullets/2.png" class="bullet"/> FUNDING PER APPEALING ORG.</a></li><li class="list" id="three"><a href="#"><img src="bullets/3.png" class="bullet"/> FUNDING PER DONOR</a></li></ul></div></li>
+					    <li class="pane2"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress2of3.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class='grouprow' id="subtitle"><h3 class="mediumdark">FUNDING PER APPEALING ORGANISATION</h3></div>
 					    <form name="sortselect" action="" method="POST" onchange="RedrawRecipient()">
 						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortrecipientletter">
@@ -50,7 +51,7 @@
 						</div>
 						</form>
 					    </li>
-					    <li class="pane3"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress3of3.png"/></td><td></td></tr></table><div class="row" id="subtitle"><h3 id="tables">FUNDING PER DONOR</h3></div>
+					    <li class="pane3"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress3of3.png"/></td><td></td></tr></table><div class='grouprow' id="subtitle"><h3 class="mediumdark">FUNDING PER DONOR</h3></div>
 					    <form name="sortselect" action="" method="POST" onchange="RedrawDonor()">
 						<div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortdonorletter">
@@ -77,23 +78,24 @@
 						$('li#four a').click(function(){carousel.showPane("3")})
 						$('li#five a').click(function(){carousel.showPane("4")})
 						thisemergency = emergency.filter(function(d){return d.id==GetUrlValue("id")})[0]
-						$(' li.pane1 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisemergency.title.toUpperCase()+" "+thisemergency.type.toUpperCase()+"</h2></div>")
-						$(' li.pane2 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisemergency.title.toUpperCase()+" "+thisemergency.type.toUpperCase()+"</h2></div>")
-						$(' li.pane3 table#progress').after("<div class='row'><h2 id='breadcrumb'>"+thisemergency.title.toUpperCase()+" "+thisemergency.type.toUpperCase()+"</h2></div>")
+						$(' li.pane1 table#progress').after("<div class='grouprow'><h2 id='breadcrumb'>"+thisemergency.title.toUpperCase()+" ("+thisemergency.type +")</h2></div>")
+						$(' li.pane2 table#progress').after("<div class='grouprow'><h2 id='breadcrumb'>"+thisemergency.title.toUpperCase()+" ("+thisemergency.type +")</h2></div>")
+						$(' li.pane3 table#progress').after("<div class='grouprow'><h2 id='breadcrumb'>"+thisemergency.title.toUpperCase()+" ("+thisemergency.type +")</h2></div>")
 						//Recipient Table Data
 						byrecipienttable = recipientfunding.grouping.filter(function(d){return d.type!=null&d.amount>0}).sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;})
 						//Donor Table Data
 						bydonortable = donorfunding.grouping.filter(function(d){return d.type!=null&d.amount>0}).sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;})
 						//Pane 1
-						$('li.pane1 h2#tables').after("<div class='row' id='overview1'><div class='cell'><h3 class='overviewdark' id='funding'></h3><h4 class='overviewdark'>FUNDING</h4></div><div class='cell'><h3 class='overview' id='pledges'></h3><h4 class='overview'>PLEDGED</h4></div></div>")
+						$('li.pane1 h2#tables').after("<div class='grouprow' id='overview1'><div class='cell'><h3 class='overview dark' id='funding'></h3><h4 class='overview dark'>FUNDING</h4></div><div class='cell'><h3 class='overview mediumdark' id='pledges'></h3><h4 class='overview mediumdark'>PLEDGED</h4></div></div>")
 						$('li.pane1 h3#funding').append("$"+truncnumber(thisemergency.funding))
 						$('li.pane1 h3#pledges').append("$"+truncnumber(thisemergency.pledges))
+						
 						//Pane 2
 						recipientletters = []
 						$('li.pane2 form').after("<table id='pane2table'></table>")
 						for(i=0;i<Math.round(byrecipienttable.length/2);i++){$('table#pane2table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<byrecipienttable.length;i++){
-							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+byrecipienttable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(byrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")
+							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td class='grid'><div class='dark' id='type'>"+byrecipienttable[i].type.toUpperCase()+"</div><div class='grouprow'></div><div class='mediumlight' id='amount'><strong>$"+truncnumber(byrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = byrecipienttable[i].type.charAt(0).toUpperCase()
 							if(!recipientletters.contains(currentletter)){
 								recipientletters.push(currentletter)
@@ -110,13 +112,14 @@
 							$('table#pane2table').html("")
 							for(i=0;i<Math.round(newbyrecipienttable.length/2);i++){$('table#pane2table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbyrecipienttable.length;i++){
-							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbyrecipienttable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(newbyrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")}}
+							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td class='grid'><div class='dark' id='type'>"+newbyrecipienttable[i].type.toUpperCase()+"</div><div class='grouprow'></div><div class='mediumlight' id='amount'><strong>$"+truncnumber(newbyrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")}}
+							
 						//Pane 3
 						donorletters = []
 						$('li.pane3 form').after("<table id='pane3table'></table>")
 						for(i=0;i<Math.round(bydonortable.length/2);i++){$('table#pane3table').append("<tr id='tr"+i+"'></tr>")}
 						for(i=0;i<bydonortable.length;i++){
-							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+bydonortable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(bydonortable[i].amount)+"</strong></br>FUNDING</div></td>")
+							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td class='grid'><div class='dark' id='type'>"+bydonortable[i].type.toUpperCase()+"</div><div class='grouprow'></div><div class='mediumlight' id='amount'><strong>$"+truncnumber(bydonortable[i].amount)+"</strong></br>FUNDING</div></td>")
 							var currentletter = bydonortable[i].type.charAt(0).toUpperCase()
 							if(!donorletters.contains(currentletter)){
 								donorletters.push(currentletter)
@@ -133,7 +136,7 @@
 							$('table#pane3table').html("")
 							for(i=0;i<Math.round(newbydonortable.length/2);i++){$('table#pane3table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbydonortable.length;i++){
-							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbydonortable[i].type.toUpperCase()+"</div><div id='row1'></div><div class='light' id='amount'><strong>$"+truncnumber(newbydonortable[i].amount)+"</strong></br>FUNDING</div></td>")}}
+							$('table#pane3table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbydonortable[i].type.toUpperCase()+"</div><div class='grouprow'></div><div class='light' id='amount'><strong>$"+truncnumber(newbydonortable[i].amount)+"</strong></br>FUNDING</div></td>")}}
 						matchingappeal = appeal.filter(function(d){return d.country==thisemergency.country && d.year==thisemergency.year})
 						matchlen = matchingappeal.length
 						for(i=0;i<matchlen;i++){$('li.pane1').append("<a href='appeal.html?id="+matchingappeal[i].id+"'><div class='related'>SEE ALSO</br><span class='dark'>"+matchingappeal[i].title.toUpperCase()+" ▼</span></div></a>")}
@@ -371,7 +374,6 @@
 			</nav>
 		</div>
 		<script src="carousel.js"></script>
-		<script src="ga.js"></script>
 		<script>
 			$('a').not('a[href*="menu"]').click(function(){});
 			$('div#carousel').show()

@@ -34,9 +34,9 @@
 					<h4 class="overview">EMERGENCIES</h4>
 				</div>
 				<div class="overviewtopright">
-					<h3 class="overviewdark" id="funding1"></h3>
-					<h4 class="overviewdark" id="funding2"></h4>
-					<h4 class="overviewdark">FUNDING</h4>
+					<h3 class="overview dark" id="funding1"></h3>
+					<h4 class="overview dark" id="funding2"></h4>
+					<h4 class="overview dark">FUNDING</h4>
 				</div>
 				<div id="tablediv">
 				<table id="emergencies" style="margin-left: auto;margin-right: auto;">
@@ -56,7 +56,7 @@
 					$('table#emergencies').append("<tr id='emergencytr"+i+"' style='border:1px solid black;'></tr>")
 				}
 				for(i=0;i<emergencylen;i++){
-					$('tr#emergencytr'+Math.floor(i/2)).append("<td class='clickable' id="+thisyearemergencies[i].id+"><div class='dark' id='title'>"+thisyearemergencies[i].title.toUpperCase()+"</div><div class='light' id='funding'><strong>$"+truncnumber(thisyearemergencies[i].funding)+"</strong></br>FUNDING</div></td>")
+					$('tr#emergencytr'+Math.floor(i/2)).append("<td class='grid clickable' id="+thisyearemergencies[i].id+"><div class='dark title'>"+thisyearemergencies[i].title.toUpperCase()+"</div><div class='light funding'><strong>$"+truncnumber(thisyearemergencies[i].funding)+"</strong></br>FUNDING</div></td>")
 				}
 				$('td').click(function(){window.location.replace("emergency.html?id="+this.id)})
 				</script>
@@ -291,6 +291,5 @@
 			</nav>
 		</div>
 		<script src="carousel.js"></script>
-		<script src="ga.js"></script>
 	</body>
 </html>
