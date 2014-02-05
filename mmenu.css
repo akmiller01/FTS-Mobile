@@ -609,7 +609,7 @@ html.mm-no-overflowscrolling .mm-menu
 	overflow: default;
 	overflow-x: default;
 	overflow-y: default;
-	position: relative;
+	/* position: relative; */
 	left: auto;
 	top: auto;
 }

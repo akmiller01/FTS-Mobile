@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=yes" />
 		<meta name="robots" content="noindex, nofollow" />
 
 		<title>FTS Mobile Test Page</title>
@@ -61,11 +61,11 @@
 					    </li>
 					    <li class="pane3"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress3of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class='grouprow' id="subtitle"><h3 class="mediumdark">REQUIREMENTS AND FUNDING PER CLUSTER</h3></div>
 					    <form name="sortselect" action="" method="POST" onchange="RedrawCluster()">
-						<div class="sortdiv0"> FILTER BY FIRST LETTER:
+						<!-- <div class="sortdiv0"> FILTER BY FIRST LETTER:
 						<select id="sortclusterletter">
 						<option value="All">All</option>
 						</select>
-						</div>
+						</div> -->
 						<div class="sortdiv"> SORT BY:
 						<select id="sortcluster">
 						<option value="name_asc">Title ascending</option>
@@ -165,6 +165,46 @@
 							projectsbycluster[i].percent_funded=projectsbycluster[i].current_requirements>0?(projectsbycluster[i].funding/projectsbycluster[i].current_requirements):1
 						}
 						
+						//functions for sorting and filtering
+						function sortData(DataToSort, sortValue){
+							var proptosort, dirAsc;
+							switch(sortValue){
+								case "name_asc":
+									proptosort = "type";
+									dirAsc = true;
+								break;
+								case "name_desc":
+									proptosort = "type";
+									dirAsc = false;
+								break;
+								case "contrib_asc":
+									proptosort = "amount";
+									dirAsc = true;
+								break;
+								case "contrib_desc":
+									proptosort = "amount";
+									dirAsc = false;
+								break;
+							}
+							var sortedData = DataToSort.sort(
+								function(a, b){
+									var keyA = eval("a."+proptosort), keyB = eval("b." + proptosort);
+									if(keyA < keyB) return (dirAsc)?-1:1;
+									if(keyA > keyB) return (dirAsc)?1:-1;
+									return 0;}
+									)
+								return sortedData;
+						}
+						function filterData(DataToFilter, propertyName, selectedletter){
+							var filteredData = DataToFilter.filter(
+								function(d){
+									var item = eval("d." + propertyName + ".charAt(0).toUpperCase()")
+									if(selectedletter=="All"){return true;}
+									else return item==selectedletter; 
+									})
+							return filteredData;
+						}
+						
 						// DRAWING Pane 1, overview
 						$('li.pane1 h2#tables').after("<div class='grouprow' id='overview1'><div class='cell'><h3 class='overview dark' id='covered'>%</h3><h4 class='overview dark'>COVERED</h4></div><div class='cell'><h3 class='overview mediumdark' id='request'></h3><h4 class='overview mediumdark'>REQUESTED</h4></div></div>")
 						$('li.pane1 h3#covered').prepend(thisappeal.current_requirements>0?Math.round((thisappeal.funding/thisappeal.current_requirements)*100):"100")
@@ -185,18 +225,17 @@
 								$('select#sortrecipientletter').append("<option value='"+currentletter+"'>"+currentletter+"</option>")
 								}
 						}
-						// demo to sort
+						// to sort
 						RedrawRecipient = function(){
-							selected = $('#sortrecipient').val()
-							selectedletter = $('#sortrecipientletter').val()
-							if(selected=="name_asc"){newbyrecipienttable = byrecipienttable.sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
-								else{if(selected=="name_desc"){newbyrecipienttable = byrecipienttable.sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
-									else{if(selected=="contrib_asc"){newbyrecipienttable = byrecipienttable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
-										else{newbyrecipienttable = byrecipienttable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}}}
+							selected = $('#sortrecipient').val();
+							selectedletter = $('#sortrecipientletter').val();					
+							newbyrecipienttable = sortData(byrecipienttable,selected);
+							newbyrecipienttable = filterData(newbyrecipienttable,"type",selectedletter);
+							
 							$('table#pane2table').html("")
 							for(i=0;i<Math.round(newbyrecipienttable.length/2);i++){$('table#pane2table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbyrecipienttable.length;i++){
-							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbyrecipienttable[i].type.toUpperCase()+"</div><div class='grouprow'><div id='percent' class='dark'><strong>"+Math.round((newbyrecipienttable[i].percent_funded)*100)+"%</strong></br>COVERED</div><div class='mediumdark' id='request'><strong>$"+truncnumber(newbyrecipienttable[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(newbyrecipienttable[i].percent_funded,100,8)+"</div><div class='mediumdark' id='amount'><strong>$"+truncnumber(newbyrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")}}
+							$('table#pane2table tr#tr'+Math.floor(i/2)).append("<td class='grid'><div class='dark' id='type'>"+newbyrecipienttable[i].type.toUpperCase()+"</div><div class='grouprow'><div id='percent' class='dark percent'><strong>"+Math.round((newbyrecipienttable[i].percent_funded)*100)+"%</strong></br>COVERED</div><div class='mediumdark request' id='request'><strong>$"+truncnumber(newbyrecipienttable[i].current_requirements)+"</strong></br>REQUESTED</div></div><div class='progressbar' id='progressbar"+i+"'>"+progressbar(newbyrecipienttable[i].percent_funded,100,8)+"</div><div class='mediumdark funding' id='amount'><strong>$"+truncnumber(newbyrecipienttable[i].amount)+"</strong></br>FUNDING</div></td>")}}
 						
 						//Pane 3 
 						// CLUSTER PANE.  
@@ -211,14 +250,13 @@
 								$('select#sortclusterletter').append("<option value='"+currentletter+"'>"+currentletter+"</option>")
 								}
 						}
-						// to demo sorting
+						// to sort
 						RedrawCluster = function(){
 							selected = $('#sortcluster').val()
 							selectedletter = $('#sortclusterletter').val()
-							if(selected=="name_asc"){newbyclustertable = byclustertable.sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
-								else{if(selected=="name_desc"){newbyclustertable = byclustertable.sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
-									else{if(selected=="contrib_asc"){newbyclustertable = byclustertable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
-										else{newbyclustertable = byclustertable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}}}
+							
+							newbyclustertable = sortData(byclustertable,selected);
+							// newbyclustertable = filterData(newbyclustertable,"type",selectedletter);
 							$('table#pane3table').html("")
 							for(i=0;i<Math.round(newbyclustertable.length/2);i++){$('table#pane3table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbyclustertable.length;i++){
@@ -236,18 +274,18 @@
 								$('select#sortdonorletter').append("<option value='"+currentletter+"'>"+currentletter+"</option>")
 								}
 						}
-						// demo to sort
+						//  to sort
 						RedrawDonor = function(){
-							selected = $('#sortdonor').val()
-							selectedletter = $('#sortdonorletter').val()
-							if(selected=="name_asc"){newbydonortable = bydonortable.sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
-								else{if(selected=="name_desc"){newbydonortable = bydonortable.sort(function(a, b){var keyA = a.type.toUpperCase(),keyB = b.type.toUpperCase();if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
-									else{if(selected=="contrib_asc"){newbydonortable = bydonortable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return -1;if(keyA > keyB) return 1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}
-										else{newbydonortable = bydonortable.sort(function(a, b){var keyA = a.amount,keyB = b.amount;if(keyA < keyB) return 1;if(keyA > keyB) return -1;return 0;}).filter(function(d){return selectedletter=="All"?true:d.type.charAt(0).toUpperCase()==selectedletter})}}}
+							selected = $('#sortdonor').val();
+							selectedletter = $('#sortdonorletter').val();
+							
+							newbydonortable = sortData(bydonortable,selected);
+							newbydonortable = filterData(newbydonortable,"type",selectedletter);
+							
 							$('table#pane4table').html("")
 							for(i=0;i<Math.round(newbydonortable.length/2);i++){$('table#pane4table').append("<tr id='tr"+i+"'></tr>")}
 							for(i=0;i<newbydonortable.length;i++){
-							$('table#pane4table tr#tr'+Math.floor(i/2)).append("<td><div class='dark' id='type'>"+newbydonortable[i].type.toUpperCase()+"</div><div class='grouprow'><div id='percent' class='light'><strong>"+truncnumber(newbydonortable[i].amount)+"</strong></br>FUNDING</div></td>")}}
+							$('table#pane4table tr#tr'+Math.floor(i/2)).append("<td class='grid'><div class='dark' id='type'>"+newbydonortable[i].type.toUpperCase()+"</div><div class='grouprow'><div id='percent' class='light'><strong>"+truncnumber(newbydonortable[i].amount)+"</strong></br>FUNDING</div></td>")}}
 						
 						//Pane 5 by project
 						$('li.pane5 div#subtitle').after("<table id='pane5table'></table>")
@@ -269,7 +307,7 @@
 				<ul>
 					<li><a href="index.html" id="home">HOME</a></li>
 					<li class="top">
-						<a href="aoverview.html?year=2013" id="current_appeal_overview">APPEALS</a>
+						<a href="aoverview.html?year=2013" id="current_appeal_overview">APPEALS / RESPONSE PLANS</a>
 						<ul>
 							<li class="Label">Year</li>
 							<li>

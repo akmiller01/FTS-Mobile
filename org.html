@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=yes" />
 		<meta name="robots" content="noindex, nofollow" />
 
 		<title>FTS Mobile Test Page</title>
@@ -35,7 +35,7 @@
 			<div id="content">
 				<div id="carousel">
 					<ul>
-					    <li class="pane1"><table id="progress"><tr><td></td><td><img class="progress" src="progress/progress1of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><h2 id="tables"></h2>
+					    <li class="pane1"><table id="progress"><tr><td></td><td><img class="progress" src="progress/progress1of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table>
 						<form name="sortselect" action="" method="POST" onchange="ReloadYear()">
 						<div class="sortdiv"> SELECT YEAR:
 						<select id="yearselect">
@@ -56,7 +56,7 @@
 						</select>
 						</div>
 						</form>
-						<div class='grouprow'><h4 class='contents'>INSIDE THE REPORT</h4></div><div class='grouprow'><ul class="list"><li class="list" id="one"><a href="#"><img src="bullets/1.png" class="bullet"/> SUMMARY</a></li><li class="list" id="two"><a href="#"><img src="bullets/2.png" class="bullet"/> CONTRIBUTIONS PER RECIPIENT</a></li><li class="list" id="three"><a href="#"><img src="bullets/3.png" class="bullet"/> CONTRIBUTIONS PER EMERGENCY</a></li><li class="list" id="four"><a href="#"><img src="bullets/4.png" class="bullet"/> CONTRIBUTIONS PER APPEAL</a></li><li class="list" id="five"><a href="#"><img src="bullets/5.png" class="bullet"/> CONTRIBUTIONS PER SECTOR</a></li></ul></div></li>
+						<div class='grouprow'><h4 class='contents mediumlight'>INSIDE THE REPORT</h4></div><div class='grouprow'><ul class="list"><li class="list" id="one"><a href="#"><img src="bullets/1.png" class="bullet"/> SUMMARY</a></li><li class="list" id="two"><a href="#"><img src="bullets/2.png" class="bullet"/> CONTRIBUTIONS PER RECIPIENT</a></li><li class="list" id="three"><a href="#"><img src="bullets/3.png" class="bullet"/> CONTRIBUTIONS PER EMERGENCY</a></li><li class="list" id="four"><a href="#"><img src="bullets/4.png" class="bullet"/> CONTRIBUTIONS PER APPEAL</a></li><li class="list" id="five"><a href="#"><img src="bullets/5.png" class="bullet"/> CONTRIBUTIONS PER SECTOR</a></li></ul></div></li>
 					    <li class="pane2"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress2of5.png"/></td><td class="forward"><a href="#" class="forward"><img class="forward" src="progress/forward_arrow.png"/></a></td></tr></table><div class='grouprow' id="subtitle"><h3  class="mediumdark">CONTRIBUTIONS PER RECIPIENT</h3></div>
 						<form name="sortselect" action="" method="POST" onchange="RedrawRecipient()">
 						<div class="sortdiv0"> FILTER BY FIRST LETTER:
@@ -110,8 +110,8 @@
 					    </li>
 					    <li class="pane5"><table id="progress"><tr><td class="back"><a href="#" class="back"><img class="back" src="progress/back_arrow.png"/></a></td><td><img class="progress" src="progress/progress5of5.png"/></td><td></td></tr></table><div class='grouprow' id="subtitle"><h3  class="mediumdark">CONTRIBUTIONS PER SECTOR</h3></div>
 						<form name="sortselect" action="" method="POST" onchange="RedrawSector()">
-						<div class="sortdiv0"> FILTER BY FIRST LETTER:
-						<select id="sortsectorletter">
+						<div class="sortdiv0"> 
+						<select id="sortsectorletter" style="display:none;">
 						<option value="All">All</option>
 						</select>
 						</div>
@@ -262,7 +262,7 @@
 				<ul>
 					<li><a href="index.html" id="home">HOME</a></li>
 					<li class="top">
-						<a href="aoverview.html?year=2013" id="current_appeal_overview">APPEALS</a>
+						<a href="aoverview.html?year=2013" id="current_appeal_overview">APPEALS / RESPONSE PLANS</a>
 						<ul>
 							<li class="Label">Year</li>
 							<li>
