@@ -3,14 +3,12 @@ FTS-Mobile
 
 A prototype mobile website for UN OCHA FTS
 
-==========
 
 Note: The prototype is currently operating on fixed data sources pulled from the FTS API rather than live data from the server.
 
 Generally speaking, all of the data is structured exactly as it is pulled from the API. Here I will document the data structure for each variable for each page, and suggest ways of incorporating server data into them.
 
-==========
-index.html
+## index.html
 
 The main page uses three variables to generate the page content and the menu. These variables are found in data/appeal.js, data/emergency.js, and data/organization.js. There are no URL variables.
 
@@ -30,8 +28,8 @@ All menus are created in the same fashion, so I will not go over the generation 
 
 Additional considerations for server implementation: The years in the menu are hard-coded into the HTML of each page, and the function populatelist() only will fill out each year that already exists in html. The hard-coding allows the user to see there is something there before the page is fully loaded, but this means that new years will have to be added manually. Additionally, the function can be adapted to print the year tags as well, but this may make the page load slightly slower for the user.
 
-==========
-aoverview.html?year=x
+
+## aoverview.html?year=x
 
 The Appeal Overview page uses one variable to generate the page content. This variable is found in data/appeal.js. The URL variable is accessible in Javascript using the function GetUrlValue("year").
 
@@ -41,8 +39,8 @@ The only keys used in the generation of the page content are "id", "current_requ
 
 Additional consideration for server implementation: For each individual appeal overview page, have the server serve up just the appeals for that given year. The percent funded is currently being generated on the client-side, but this can be accomplished by the server to save resources.
 
-==========
-eoverview.html?year=x
+
+## eoverview.html?year=x
 
 The Emergency Overview page uses one variable to generate the page content. This variable is found in data/emergency.js. The URL variable is accessible in Javascript using the function GetUrlValue("year").
 
@@ -52,8 +50,8 @@ The only keys used in the generation of the page content are "id", "funding", an
 
 Additional considerations for server implementation: For each individual emergency overview page, have the server serve up just the emergencies for that given year.
 
-==========
-appeal.html?id=x
+
+## appeal.html?id=x
 
 The Appeal page uses six variables to generate the page content. These variable are found in data/appeal.js, data/funding_cluster_978.js, data/funding_donor_978.js, data/funding_recipient_978.js, data/project_978.js, and data/contribution_978.js. The URL variable is accessible in Javascript using the function GetUrlValue("id").
 
@@ -79,8 +77,8 @@ It utilizes the keys "amount", "status", and "project-code"
 
 Additional considerations for server implementation: A lot of work is being done on the client side on this page to stitch together the grouped funding amounts with requirements from projects. Many resources could be saved by serving up funding and requirements together grouped by the relevant fields. For the mobile page, I advocate eliminating the "Funding Status of Projects Grouped By Cluster" page, since once the server can automatically give the requirements, there will be no reason to add the project data and the load-time will be drastically reduced for users.
 
-==========
-emergency.html?id=x
+
+## emergency.html?id=x
 
 The Emergency page uses three variables to generate the page content. These variable are found in data/emergency.js, data/funding_donor_16271.js, and data/funding_recipient_16271.js. The URL variable is accessible in Javascript using the function GetUrlValue("id").
 
@@ -95,8 +93,8 @@ The page content only uses the first key "grouping" to access the data, and then
 
 Additional considerations for server implementation: The only real thing that can be improved on this page is the summary from emergency.js being served up individually.
 
-==========
-go.html?year=x
+
+## go.html?year=x
 
 The Global Overview page uses five variables to generate the page content. These variables are found in data/appeal.js, data/emergency.js, data/funding_donor_2013.js, data/funding_recipient_2013.js, and data/funding_sector_2013.js. The URL variable is accessible in Javascript using the function GetUrlValue("year").
 
@@ -117,8 +115,8 @@ The page content only uses the first key "grouping" to access the data, and then
 
 Additional considerations for server implementation: Again, the summary on the first page does not require the data from every appeal and every emergency. This can be served up.
 
-==========
-org.html?id=x&year=x
+
+## org.html?id=x&year=x
 
 The Organisation page uses five variables to generate the page content. These variables are found in data/organization.js, data/USA_funding_recipient.js, data/USA_funding_emergency.js, data/USA_funding_appeal.js, and data/USA_funding_sector.js. The URL variables are accessible in Javascript using the functions GetUrlValue("id") and GetUrlValue("year").
 
@@ -140,8 +138,6 @@ The page content only uses the first key "grouping" to access the data, and then
 
 Additional considerations for server implementation: Be careful of organization with a Z vs. organisation with an S. The file-name and the variable-name for the javascript uses a Z (since this is what the API does) but I tried to make all visual references to the word have an S.
 
-==========
-==========
 ==========
 
 If you have any questions, please contact me at my personal email address: alex.k.miller@gmail.com. I will be happy to help.
